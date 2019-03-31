@@ -1,0 +1,13 @@
+worklog brief
+
+Sat Mar 30 17:18:38 EDT 2019
+
+  invalid questionIds are being passed to backend from the front and need
+  to be reprocessed. 
+
+  task A -- ensure that addT prevents inadvertent inserts of invalid
+  questions. 
+
+  report A -- addT (MakeTest2.php) will now filter question Ids. It will 
+  still create the test, but no questions will be associated with it, 
+  it will return an error in its JSON response. 
