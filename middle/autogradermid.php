@@ -1,12 +1,5 @@
 <?php /* THE ALMIGHTY AUTOGRADER SCRIPT */ 
 
-/*curl a request to backend to retrieve the following: based on sub:1, retrieve userAnswer, testcases */
-/*
-if (! $log = fopen('/afs/cad/u/w/b/wbv4/public_html/Middle/autolog.txt', 'a')){
-    echo "autolog.txt failed to 'fopen' \n";
-}
-$write = "page accessed AUTOGRADER" . date("Y-m-d h:i:sa") . "\n"; 
-*/
 date_default_timezone_set("America/New_York"); 
 autoclear(); 
 $write = "page accessed AUTOGRADER" . date("Y-m-d h:i:sa") . "\n";
@@ -26,6 +19,8 @@ if (! $hole = getExam($bullet)) {
      */
   $source = '/afs/cad/u/w/b/wbv4/public_html/Middle/firstpy.py';
   $source2 =  '/afs/cad/u/w/b/wbv4/public_html/Middle/firstpy.txt';
+  $sourceA =  '/afs/cad/u/w/b/wbv4/public_html/Middle/autograderlogs/firstpy1.txt';
+  $sourceB =  '/afs/cad/u/w/b/wbv4/public_html/Middle/autograderlogs/firstpy2.txt';
 
   $hit = json_decode($hole, true);
   $arrayofTests = $hit["tests"];
@@ -89,20 +84,24 @@ if (! $hole = getExam($bullet)) {
       $arrayofAnswers = $hole2['answers']; //testcases
     } 
 
-
-
     foreach ($arrayofAnswers as $a) {
+      
       $qId = $a['qId'];
       $Tests = $a['tests']; //array of testcases 
       $Text = $a['text']; 
+ 
+      $write = "clear the python file for " . $qId ."\n"; autolog($write); 
+      clear($source); clear($source2); 
 
       //echo "<br> writing this answer to python file : " . $Text . "<br>";
-      //$write .=  "writing this answer to python file : " . print_r($Text, true) . "\n"; 
+      $write .=  "writing this answer to python file : " . print_r($Text, true) . "\n"; 
+      autolog($write); 
       append($source, $Text);  
       append($source2, $Text);  
 
       //echo "<br>array of testcases <br>";
       $write = "array of testcases \n";
+      $write .= "question Id: " . $qId . "\n"; 
       autolog($write);
       //var_dump($Tests);
       $write = print_r($Tests, true) . "\n";
@@ -149,7 +148,7 @@ if (! $hole = getExam($bullet)) {
       //echo "check the input here: <br><br>";
       $write = "check the input here: \n";
       //echo '<a href="https://web.njit.edu/~wbv4/Middle/firstpy.txt"> firstpy.txt </a>';
-      $write .= "https://web.njit.edu/~wbv4/Middle/firstpy.txt";
+      $write .= "https://web.njit.edu/~wbv4/Middle/firstpy.txt \n ";
       autolog($write);
 
       //lets grade it now. 
@@ -175,7 +174,7 @@ if (! $hole = getExam($bullet)) {
           autolog($write);
           
           //compare each exec output with output.   
-          if ($c != $arrayofOutputs[$index]) {
+          if ($c == $arrayofOutputs[$index]) {
             //echo "pass!<br>"; 
             $write = "pass!\n";
             autolog($write);
@@ -258,7 +257,8 @@ function getExam($ammo) {
   if ( ! $recoil = curl_exec($proj)) {
     //if (curl_exec($proj) === false) 
     echo "type: getT;  curl_error:" . curl_error($proj) . "<br>";
-    $_GLOBALS['write'] .= "type: getT; curl_error: " . curl_error($proj) . "\n"; 
+    $write  = "type: getT; curl_error: " . curl_error($proj) . "\n"; 
+    autolog($write); 
   } else  {
     curl_close($proj); 
     return $recoil; 
@@ -276,7 +276,8 @@ function getAnswers($ammo) {
   if ( ! $recoil = curl_exec($proj)) {
     //if (curl_exec($proj) === false) 
     echo "type: getAnswer;  curl_error:" . curl_error($proj) . "<br>";
-    $_GLOBALS['write'] .= "type: getAnswer; curl_error: " . curl_error($proj) . "\n"; 
+    $write  .= "type: getAnswer; curl_error: " . curl_error($proj) . "\n"; 
+    autolog($write); 
   } else  {
     curl_close($proj); 
     return $recoil; 
@@ -293,7 +294,8 @@ function updatePoints($ammo) {
   if ( ! $recoil = curl_exec($proj)) {
     //if (curl_exec($proj) === false) 
     echo "type: updatePoints;  curl_error:" . curl_error($proj) . "<br>";
-    $_GLOBALS['write'] .= "type: updatePoints; curl_error: " . curl_error($proj) . "\n"; 
+    $write  = "type: updatePoints; curl_error: " . curl_error($proj) . "\n"; 
+    autolog($write); 
   } else  {
     curl_close($proj); 
     return $recoil; 
@@ -308,10 +310,12 @@ function updatePoints($ammo) {
 function getFunc($str) 
 {
   if (!  $eqpos = strPos($str, '=')) {
-    echo "eqpos was not found.<br> ";
+     $write = "getFunc() failed;  eqpos was not found. \n";
+     autolog($write); 
   } else {
     if(! $func = substr($str,0,$eqpos)) {
-      echo "substr failed. <br>";
+      $write =  "substr failed in getFunc()  \n";
+      autolog($write); 
       return false;
     }
     trim($func);
@@ -320,13 +324,14 @@ function getFunc($str)
 
 }
 
-function getOut($str) 
-{
+function getOut($str) {
   if(! $eqpos = strPos($str, '=')) {
-    echo "eqpos was not found in getOut(). <br> "; 
+    $write = "eqpos was not found in getOut(). \n"; 
+    autolog($write); 
   } else {
     if (! $out  = substr($str, $eqpos+1, strlen($str))) {
-      echo "substr failed at getOut()";
+      $write =  "substr failed at getOut()";
+      autolog($write); 
       return false;
     }
     trim($out); 
@@ -336,9 +341,10 @@ function getOut($str)
 }
 
 function clear($file) {
-  if (! $clean = fopen($file, 'w' )) //CLEAR THE FILE. 
-    echo "error: file failed to open file in clear()<br>";
-  else   {
+  if (! $clean = fopen($file, 'w' )) {  //CLEAR THE FILE. 
+    $write = "error: file failed to open file in clear()\n";
+    autolog($write);
+  } else  {
     fwrite ($clean, "");
     fclose($clean); 
     return true; 
@@ -346,9 +352,10 @@ function clear($file) {
 }
 
 function append($file, $input) {
-  if (! $target = fopen($file, 'a' ))  
-    echo "error: file failed to open file in append()<br>";
-  else   {
+  if (! $target = fopen($file, 'a' )) {  
+    $write =  "error: file failed to open file in append()\n";
+    autolog($write); 
+  } else   {
     fwrite($target, PHP_EOL); 
     fwrite($target, $input); 
     return true;       
