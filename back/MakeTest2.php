@@ -1,4 +1,15 @@
 <?php
+
+/*disclaimer, locked is called to run this program; comment it to disable the program*/
+/*its just here so that when editing the file, no body can curl it when we are editing*/
+/*
+$lockmsg = array("type" => "addT", "error" => "addT is being edited and currently locked."); 
+echo json_encode($lockmsg); 
+*/
+
+ locked();  /* ********************* program ******************** */ 
+
+function locked() {
 date_default_timezone_set("America/New_York");
 $write = "page access " . date("Y-m-d h:i:sa") . "\n";
 autolog($write); 
@@ -27,9 +38,10 @@ if ($decoder != null) { //ensures this page doesn't run a query  if no input is 
 } else {
   $error .= "backend received nothing.";
   $write = "backend received nothing.\n"; autolog($write);
-  $report = array("Type" => "addT", "error" => $error);
+  $report = array("type" => "addT", "error" => $error);
   echo json_encode ($report); 
-}   
+  } //if decoder != null;   
+} //locked
 
 function addExam($conn, $decoder) {
   $release = $decoder['rel'];
@@ -37,6 +49,26 @@ function addExam($conn, $decoder) {
   $testName = addslashes($testName);
   $questions = $decoder['ques']; 
 
+  $write = "checking each questionId to ensure they are valid\n"; autolog($write); 
+  $errorcount = 0; 
+  foreach ($questions as $a) {
+       $write = "checking id: " . $a['id']  . "\n"; autolog($write); 
+       $qIdnum = $a['id']; 
+       if (! qIdcheck($conn, $qId)) {
+          $errorcount += 1; 
+          $error .= "an invalid question Id was detected.";
+          $write = $error . "\n"; autolog($write); 
+      }
+  }//foreach $questions as $a
+
+  if ($errorcount > 0) {
+       $write = "terminating program because of invalid question ids.\n"; autolog($write); 
+       $error = "terminating program because of invalid question ids."; 
+       $report = array("type" => "addT", "error" => $error); 
+       return  json_encode ($report); 
+
+   }//if $errorcount >0 
+  
   /*
      foreach($questions as $q) {
      $arrayofIds = $q['Id'];    
@@ -70,7 +102,7 @@ function addExam($conn, $decoder) {
       //ensure the qId is in the database, if not, get rid of it. 
       if (! qIdcheck($conn, $qId)) {
           $error .= "an invalid question Id was detected.";
-          $write = $error; autolog($write); 
+          $write = $error . "\n"; autolog($write); 
 	  break; 
       }
       $sql3 = "INSERT INTO QuestionStudentRelation (testId, questionId, testName) VALUES ('$id', '$qId', '$testName')"; 
@@ -109,7 +141,18 @@ function addExam($conn, $decoder) {
     $error = 0; 
   }
   $testName = stripslashes($testName);
-  $package = array("type" => "addT", "error" => $error, "id" => $id, "desc" => $testName,  "Rel" => $release, "Sub" => "0", "ques" => $arrayofQuestions); 
+  /* old format:  Mon Apr  1 15:53:03 EDT 2019 */ 
+/*  $package = array("type" => "addT", "error" => $error, "id" => $id, "desc" => $testName,  "Rel" =>
+  $release, "Sub" => "0", "ques" => $arrayofQuestions); */
+
+  /* new format : Mon Apr  1 15:53:58 EDT 2019 */ 
+  /* format */
+  /* addT reply: {type, error, test} 
+  test obj: {id, desc, rel, sub, ques[]} */ 
+
+  $package = array('type'  => 'addT' , 'error'  => $error, "test" => array('id' => $id, 'desc' =>
+  $testName, 'rel' => $rel, 'sub' => '0', 'ques'  => $arrayofQuestions)/*test*/)/*type*/; 
+
   $write = "addT() function results: \n"; 
   $write .= print_r($package, true) . "\n"; autolog($write); 
   return json_encode($package); 
@@ -127,9 +170,9 @@ function qIdcheck($conn, $qId) {
     } else {
          $rowcount = $result->num_rows;
 	 if ($rowcount < 1) {
-             return 0; 
+             return 0; //invalid qid return false
 	 } else {
-             return 1; 
+             return 1; //valid id, return true 
 	 }
     }
 }//qIdcheck()

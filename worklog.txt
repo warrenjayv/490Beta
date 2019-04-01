@@ -1,5 +1,15 @@
 worklog brief
 
+LOG Mon Apr  1 15:51:07 EDT 2019
+
+  briefing
+       the addT json file is in the wrong format. 
+
+   [-] task A -- fix the json format for addT. 
+
+       task A report -- addT and addA has been resolved until further discrepancies are found.
+       addT will no longer insert tests with invalid questions. be aware.
+
 LOG Sun Mar 31 23:15:28 EDT 2019
 
   autogradermid is being updated to ensure that feedback is properly returned when

@@ -34,7 +34,7 @@ if (! $feedback = submitExam($conn, $decoder)) { //calls the function getQUEST()
         $QId = $x['id'];
         $text = $x['text'];
         $text = addslashes($text);
-        echo "<br<br>text = " . $text . "<br><br>";
+       // echo "<br<br>text = " . $text . "<br><br>";
         $sql1 = "UPDATE rd248.QuestionStudentRelation SET userAnswer = '$text' WHERE QuestionStudentRelation.questionId = '$QId' AND 
         QuestionStudentRelation.testId = '$testId' ";
         if ( ! $result1 = $conn->query($sql1)) { 
