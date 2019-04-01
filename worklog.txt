@@ -1,5 +1,19 @@
 worklog brief
 
+LOG Sun Mar 31 23:15:28 EDT 2019
+
+  autogradermid is being updated to ensure that feedback is properly returned when
+  invalid functions are provided by the student. the code needs to ensure that
+  characters are escaped when sending SQL statements.
+
+  [-] task A -- escape SQL variables 
+      
+      report A -- the autograder will now update feedback if the function student provides
+      fails to match testcases.
+
+      addT was checked to ensure that it escaped 'text' answer before curling backend.
+      addT and the autograder is ready to be coordinated together for further testing.
+
 LOG Sun Mar 31 09:33:34 EDT 2019
    
   brief: the autograder is tested. updated getAnswer() to ensure proper testcases

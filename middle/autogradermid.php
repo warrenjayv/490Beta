@@ -187,7 +187,7 @@ if (! $hole = getExam($bullet)) {
             $points = '0'; 
             $bullet3 = array('type' => 'updatePoints', 'testId' => $testId, 'qId' => $qId, 'feedback' => $Tests[$index] . " failed!", 'points' => $points);  
             if (! $hole3 = updatePoints($bullet3)) {
-              $write .= "error; failure to execute getAnswer('bullet2')\n";  
+              $write .= "error; failure to execute getAnswer('bullet3')\n";  
               //echo "<br>updatePoints failed!<br>";
               $write .= "updatePoints() fialed!\n";
               autolog($write);
@@ -212,7 +212,22 @@ if (! $hole = getExam($bullet)) {
         //echo $status; 
         $write = "exec failed!\n";
         $write .= "status " . $status . "\n"; 
+	$write .= "updating points. calling updatePoints()\n";
         autolog($write);
+	$points = '0';
+        $bullet4 = array('type' => 'updatePoints', 'testId' => $testId, 'qId' => $qId, 'feedback' => $Text . " failed to match any testcases",
+	'points' => $points); 
+	    if (! $hole4 = updatePoints($bullet4)) {
+                $write = "error; failure to execute getAnswer('bullet4') \n";
+		$write .= "updatePoints() failed!\n";
+		autolog($write); 
+	    } else {
+                $write = "updatePoints('bullet4') was succesful.\n"; 
+		$write = "printing updatePoints('bullet4') output. \n"; 
+		$hit4 = json_decode($hole4); 
+		$write .= print_r($hit4, true) . "\n";
+		autolog($write); 
+	    } //if hole4 is succesful
       }
       
     } //foreach arrayofanswers as $a   
