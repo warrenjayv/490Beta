@@ -54,7 +54,7 @@ function addExam($conn, $decoder) {
   foreach ($questions as $a) {
        $write = "checking id: " . $a['id']  . "\n"; autolog($write); 
        $qIdnum = $a['id']; 
-       if (! qIdcheck($conn, $qId)) {
+       if (! qIdcheck($conn, $qIdnum)) {
           $errorcount += 1; 
           $error .= "an invalid question Id was detected.";
           $write = $error . "\n"; autolog($write); 
@@ -163,12 +163,16 @@ function qIdcheck($conn, $qId) {
     /*purpose: ensure that id is in the database, if not get rid of it.*/
     $write = "ensure that id is in the database. running qIdcheck()\n";
     autolog($write); 
+    $write = "checking the database for " . $qId . "\n"; autolog($write); 
     $sql = "SELECT * FROM Question WHERE Id = '$qId' ";
     if (! $result = $conn->query($sql)) {
         $errorsql = $conn->error;
 	$error .= "sql : " . $errorsql . " ";
     } else {
+      
          $rowcount = $result->num_rows;
+	 $write = "qIdcheck - number of rows " . $rowcount . "\n"; 
+	 autolog($write); 
 	 if ($rowcount < 1) {
              return 0; //invalid qid return false
 	 } else {
