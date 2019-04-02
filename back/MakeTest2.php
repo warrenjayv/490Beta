@@ -151,7 +151,7 @@ function addExam($conn, $decoder) {
   test obj: {id, desc, rel, sub, ques[]} */ 
 
   $package = array('type'  => 'addT' , 'error'  => $error, "test" => array('id' => $id, 'desc' =>
-  $testName, 'rel' => $rel, 'sub' => '0', 'ques'  => $arrayofQuestions)/*test*/)/*type*/; 
+  $testName, 'rel' => $release, 'sub' => '0', 'ques'  => $arrayofQuestions)/*test*/)/*type*/; 
 
   $write = "addT() function results: \n"; 
   $write .= print_r($package, true) . "\n"; autolog($write); 
