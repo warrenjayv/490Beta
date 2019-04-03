@@ -1,5 +1,17 @@
 worklog brief
 
+LOG Tue Apr  2 18:10:26 EDT 2019
+
+  briefing 
+       the addT isn't updating answers in database. 
+
+    [-] investigate why addT isn't updating the userAnswer field.  
+
+    [R] Tue Apr  2 19:48:38 EDT 2019
+
+        the addA isn't updating the answer field because the frontend
+	decoder format of answer is invalid
+
 LOG Mon Apr  1 15:51:07 EDT 2019
 
   briefing
