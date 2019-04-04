@@ -4,14 +4,19 @@ date_default_timezone_set("America/New_York");
 include 'dblogin_interface.php';
 include 'autolog.php'; 
 
+<<<<<<< HEAD
 // $target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
 $target = '/afs/cad/u/w/b/rd248/public_html/download/beta/getT.txt';
+=======
+$target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
+>>>>>>> b3441dae5b09a4e053e136bfb3d214bc65d90f34
 $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
 
 $write  = "[ + ]  page accessed getT " . date("Y-m-d h:i:sa") . "\n"; 
 autolog($write,$target); 
 
+<<<<<<< HEAD
 if (! empty($decoder)) {
    $write = "data received...\n"; 
    $write .= print_r($decoder, true); autolog($write, $target); 
@@ -32,6 +37,17 @@ else {
 	$write = $error . "\n"; autolog($write, $target); 
 	$report = array('type' => 'getT', 'error' => $error); 
 	echo json_encode($report); 
+=======
+//$decoder = array("rels" => array("0", "1")); 
+if (! $feedback = getExam($conn, $decoder)) { //calls the function getQUEST() ; 
+   $error = "backend getQUEST() failed."; 
+   $report = array("type" => "getT", "error" => $error); 
+   echo json_encode ($report); 
+} else {
+   $write = "running getExam()...output:\n"; 
+   $write .= print_r($write, true); autolog($write, $target); 
+   echo $feedback; 
+>>>>>>> b3441dae5b09a4e053e136bfb3d214bc65d90f34
 }
 
 function getExam($conn, $decoder) { 
@@ -78,7 +94,11 @@ function getExam($conn, $decoder) {
 /*********************************UTILITIES***********************************/
 
 function testObject($conn, $testId, $rel, $sub) {
+<<<<<<< HEAD
    $target = '/afs/cad/u/w/b/rd248/public_html/download/beta/getT.txt';
+=======
+   $target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
+>>>>>>> b3441dae5b09a4e053e136bfb3d214bc65d90f34
    //returns: "Id" => $y, "Desc" => $testName, "Rel" => $relstate, "Sub" => $substate          
    $temp = array('id' => $testId); 
    $arrayofPts = array();        
@@ -106,7 +126,12 @@ function testObject($conn, $testId, $rel, $sub) {
       $atemp = array("sub" => $sub);
       $temp = array_merge($temp, $atemp); 
       //return $temp; 
+<<<<<<< HEAD
    }//if else sql1 
+=======
+
+   }
+>>>>>>> b3441dae5b09a4e053e136bfb3d214bc65d90f34
 
    //Questions [] : Question = { Desc, Topic, Id, Diff, [Tests] }
    //get the questions
