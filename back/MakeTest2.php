@@ -48,10 +48,13 @@ function addExam($conn, $decoder) {
   $testName = $decoder['desc'];
   $testName = addslashes($testName);
   $questions = $decoder['ques']; 
+  $points = $decoder['pts']; 
 
   $write = "checking each questionId to ensure they are valid\n"; autolog($write); 
   $errorcount = 0; 
-  foreach ($questions as $a) {
+
+ foreach ($questions as $a) {
+      // $index = array_search($a, array_values($questions)); 
        $write = "checking id: " . $a['id']  . "\n"; autolog($write); 
        $qIdnum = $a['id']; 
        if (! qIdcheck($conn, $qIdnum)) {
@@ -95,7 +98,9 @@ function addExam($conn, $decoder) {
     $sqlerror2 = $conn->error; 
     $error .= "sql2: " . $sqlerror2 . " "; 
   } else { 
+
    foreach ($questions as $x) { 
+      $index = array_search($x, array_values($questions)); 
       $qId = $x['id'];
       /* prints the ids here: */
       $write = $qId . "\n" ; autolog($write); 
@@ -105,14 +110,17 @@ function addExam($conn, $decoder) {
           $write = $error . "\n"; autolog($write); 
 	  break; 
       }
-      $sql3 = "INSERT INTO QuestionStudentRelation (testId, questionId, testName) VALUES ('$id', '$qId', '$testName')"; 
+      $write = "insert to QuestionStudentRelation: test " . $id . " qId " . $qId .
+      " points " . $points[$index] . "\n"; autolog($write); 
+      $sql3 = "INSERT INTO QuestionStudentRelation (testId, questionId, testName,
+      points) VALUES ('$id', '$qId', '$testName', '$points[$index]') "; 
       if ( ! $result3 = $conn->query($sql3)) { 
 	$sqlerror3 = $conn->error; 
 	$error .= "sql3: " . $sqlerror3 . " ";
+	$write = "error: " . $error . "\n"; autolog($write); 
       } else {
 	//succesful insert into table 'QuestionStudentRelation'
       } 
-
     }//foreach questions  as $x
 
   }//sql2
@@ -151,7 +159,8 @@ function addExam($conn, $decoder) {
   test obj: {id, desc, rel, sub, ques[]} */ 
 
   $package = array('type'  => 'addT' , 'error'  => $error, "test" => array('id' => $id, 'desc' =>
-  $testName, 'rel' => $release, 'sub' => '0', 'ques'  => $arrayofQuestions)/*test*/)/*type*/; 
+  $testName, 'rel' => $release, 'sub' => '0', 'ques'  => $arrayofQuestions, 'pts' =>
+  $points)/*test*/)/*type*/; 
 
   $write = "addT() function results: \n"; 
   $write .= print_r($package, true) . "\n"; autolog($write); 
