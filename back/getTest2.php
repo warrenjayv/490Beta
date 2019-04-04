@@ -4,7 +4,8 @@ date_default_timezone_set("America/New_York");
 include 'dblogin_interface.php';
 include 'autolog.php'; 
 
-$target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
+// $target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
+$target = '/afs/cad/u/w/b/rd248/public_html/download/beta/getT.txt';
 $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
 
@@ -77,7 +78,7 @@ function getExam($conn, $decoder) {
 /*********************************UTILITIES***********************************/
 
 function testObject($conn, $testId, $rel, $sub) {
-   $target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
+   $target = '/afs/cad/u/w/b/rd248/public_html/download/beta/getT.txt';
    //returns: "Id" => $y, "Desc" => $testName, "Rel" => $relstate, "Sub" => $substate          
    $temp = array('id' => $testId); 
    $arrayofPts = array();        
