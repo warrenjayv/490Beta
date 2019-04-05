@@ -1,5 +1,13 @@
 worklog brief
 
+LOG Fri Apr  5 09:19:59 EDT 2019
+
+    [R] formed testBuilder.php, quesBuilder.php, and created getAttempt.php.
+    	getA is now operational until discrepancies are found. 
+	
+    [+] we need to investigate addA to ensure it is able.
+    [+] push into the remote repository. 
+
 LOG Wed Apr  3 15:05:57 EDT 2019
 
   briefing 
