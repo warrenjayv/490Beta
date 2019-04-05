@@ -91,7 +91,11 @@ if (! empty($demux['type']) && ($demux['type'] == 'getAnswers')) {
     //echo getAnswers($demux); 
 }//if submit exam
 
-
+if (! empty($demux['type']) && ($demux['type'] == 'getA')) {
+    $note = "running getAttempt() \n"; 
+    $write .= trace($note); 
+    echo getAttempt($demux); 
+}
 
 /*
 send a payload to backend.
@@ -130,7 +134,7 @@ function loginVERIFY($user, $pass) {
 //************************get question**********************************
 
 function getQUEST($ammo) {
-    $tgt  = 'https://web.njit.edu/~wbv4/Middle/getQUEST.php'; 
+    $tgt  = 'https://web.njit.edu/~wbv4/Middle/getQuestion.php'; 
     //$tgt  = 'https://web.njit.edu/~rd248/download/beta/getQuestion.php' ; 
     $proj = curl_init(); 
     curl_setopt($proj , CURLOPT_URL, $tgt); 
@@ -151,7 +155,7 @@ function getQUEST($ammo) {
 
 function addQUEST($ammo) {
     //$tgt = 'https://web.njit.edu/~rd248/download/beta/InsertQuestion.php'; 
-    $tgt  = 'https://web.njit.edu/~wbv4/Middle/insert.php'; 
+    $tgt  = 'https://web.njit.edu/~wbv4/Middle/addQuestion.php'; 
     $proj  = curl_init(); 
     curl_setopt($proj , CURLOPT_URL, $tgt);
     curl_setopt($proj , CURLOPT_RETURNTRANSFER, 1);
@@ -259,87 +263,24 @@ function getAnswers($ammo) {
       } 
 }//getExam()
 
-/*
-worklog 03/11/2019
-       - the getExam function will curl the type: GetExam, 
-          curling the values Release, and TestId. 
-*/
-/*
-$hit = json_decode($result2, true); 
-echo $hit . "<br>"; 
-vardump($hit); 
-if ($hit['Response'] == 'student'){
-    echo "succesful student login <br>"; 
-}
 
-if ($hit['Response'] == 'teacher'){
-    echo "succesful teacher login <br>"; 
-}
-*/
-/*
-function tracer($ret) {
-    $question = $ret['question']; 
-    $array = $ret['answers']; 
-    $count = sizeof($array); 
-    echo $question . '<br>'; 
-    for ($i = 0; $x < count; $i++) {
-        echo $array[i] . "<br>";  **
-    }
-}
-*/ 
+//****************************get attempt **********************************
 
+function getAttempt($ammo) {
+      $tgt = 'https://web.njit.edu/~wbv4/Middle/getAttempt.php'; 
+      $proj = curl_init();
+      curl_setopt($proj , CURLOPT_URL, $tgt);
+      curl_setopt($proj , CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($proj , CURLOPT_POSTFIELDS, json_encode($ammo));
+      curl_setopt($proj , CURLOPT_FOLLOWLOCATION, true);  
+      if ( ! $recoil = curl_exec($proj)) {
+      //if (curl_exec($proj) === false) 
+         echo "type: getA;  curl_error:" . curl_error($proj) . "<br>";
+	       $_GLOBALS['write'] .= "type: getA; curl_error: " . curl_error($proj) . "\n"; 
+      } else  {
+        curl_close($proj); 
+        return $recoil; 
+      } 
+}//getAttempt()
 
-/*
-workog 02.22.19 
-
-this program retrieves JSON with username, password, and question. 
-
-*/
-
-/* LEGACY -- NJIT LOGIN 
-$payload = array("ucid" => $user, "pass" => $pass); 
-$url = "https://aevitepr2.njit.edu/myhousing/login.cfm"; 
-$fac = curl_init(); 
-curl_setopt($fac, CURLOPT_URL, $url);
-curl_setopt($fac, CURLOPT_POST, 1); 
-curl_setopt($fac, CURLOPT_POSTFIELDS, http_build_query($payload)); 
-curl_setopt($fac, CURLOPT_RETURNTRANSFER, true); 
-curl_setopt($fac, CURLOPT_FOLLOWLOCATION, true); 
-if (curl_exec($fac) ===  false) 
-      echo "curl_error:" . curl_error($fac) . "<br>";
-$result = curl_exec($fac); 
-curl_close($fac); 
-
-if (strpos($result, "Please login using your UCID") != true) {
-//         echo "NJIT accept"; 
-	   $njit = "NJIT accept"; 
-} else {
-//	   echo "NJIT reject"; 
-           $njit = "NJIT reject"; 
-}
-
-if (strpos($result2, "NJIT accept") == true) {  
-         echo "NJIT login accepted <br>";           
-}
-if (strpos($result2, "NJIT reject") == true) { 
-         echo "NJIT login rejected <br>"; 
-}
-
-
-//legacy - save for later. 
-if (strpos($result2, "Success") == true) {
-         echo "Database login succesful <br>"; 
-}
-if (strpos($result2, "Failure") == true) {
-         echo "Database login failure <br>"; 
-}
-*/
-/*
-<script>
-console.log(<?= json_encode($fail) ?>); 
-console.log(<?= json_encode($log) ?>); 
-console.log(<?= json_encode($write) ?>); 
-console.log(<?= json_encode($error)?>);
-</script>
-*/
 ?>
