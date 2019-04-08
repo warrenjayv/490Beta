@@ -191,7 +191,7 @@ function qIdcheck($conn, $qId) {
 }//qIdcheck()
 
 function autolog($input) {
-  if (! $file = fopen('/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/addT.txt', 'a')){
+  if (! $file = fopen('/afs/cad/u/r/d/rd248/public_html/download/beta/log.txt', 'a')){
     echo ".txt failed to 'fopen' to write \n";
     return 0; 
   } else {
