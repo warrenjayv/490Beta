@@ -15,9 +15,11 @@ function targetIs($str) {
 	if ($str == 'testB') {
 		return '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/testB.txt';
 	}
-	if ($str = 'quesB') {
+	if ($str == 'quesB') {
 		return '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/quesB.txt';
 	}
-
+	if ($str == 'addQ') {
+		return '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/addQ.txt';
+	}
 }
 ?>

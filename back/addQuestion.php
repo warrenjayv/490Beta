@@ -1,11 +1,17 @@
 <?php 
-$dbserver = "sql1.njit.edu";
-$mySql_user = "rd248";
-$mySql_password = "aZrVVjeCv";
-$mySql_database = "rd248";
+date_default_timezone_set("America/New_York"); 
+include 'dblogin_interface.php'; 
+include 'autolog.php';
+include 'targets.php'; 
+
+$target = targetIs('addQ'); 
+$write = "[ + ]  page accessd addQ " . date("Y-m-d h:i:sa") . "\n"; 
+autolog($write, $target); 
 
 $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
+$write .= "page received data isnt that cool!\n"; 
+$write = print_r($decoder, true) . "\n"; autolog($write, $target);  
 
 $question   = $decoder['desc'];
 $question = addslashes($question); 
@@ -13,6 +19,7 @@ $difficulty = $decoder['diff'];
 $cases      = $decoder['tests'];
 // $keywords  = $decoder['Keys'];
 $category = $decoder['topic'];
+$consArray = $decoder['cons']; 
 $category = addslashes($category);
 
 /*testpoint*/
@@ -21,21 +28,13 @@ $conn       = mysqli_connect($dbserver, $mySql_user, $mySql_password, $mySql_dat
 if (!$conn) {
        $error .= "failed to connect to database ";  
 }
- // if (isset($decoder['Desc']) && (empty($question) == false) && (empty($category) == false))  {
-
-   //    if(empty($cases) == false) {
-   //         echo addQUEST($conn, $question, $difficulty , $cases, $category);
-   //    } else {
-   //        $error .= "no test cases inserted!"; 
-  //	   $report = array("Type" => "AddQ", "Error" => $error); 
-  //	   echo json_encode($report); 
-   //    }
 
 if(! empty($decoder))  {
-     if(! $feedback = addQUEST($conn, $question, $difficulty, $cases, $category))  {
+     if(! $feedback = addQUEST($conn, $question, $difficulty, $cases, $category, $consArray))  {
          $error = "backend addQUEST() failed!";
-	 $report = array("type" => "addQ", "error" => $error);
-	 echo json_encode($report); 
+     	 $report = array("type" => "addQ", "error" => $error);
+		 $write = $error . "\n"; 
+    	 echo json_encode($report); 
       }  else {
          echo $feedback; 
       }
@@ -47,8 +46,8 @@ if(! empty($decoder))  {
 
 }
 
-  function addQUEST($conn, $question, $difficulty , $cases, $category) {
-      
+  function addQUEST($conn, $question, $difficulty , $cases, $category, $consArray) {
+   	  $target = targetIs('addQ');   
       $sql1 = "SELECT * FROM Question"; 
        if ( ! $result1 = $conn->query($sql1)) { 
       //if (! $result1) { //NOTE: running another IF statement on queries RUNS its twice!! 
@@ -75,9 +74,18 @@ if(! empty($decoder))  {
 	          if (! $result3 = $conn->query($sql3)) {
                     $sqlerror3 = $conn->error; 
                      $error .= "sql3: " . $sqlerror3 . " "; 
-	              //return "type: AddQ; SQL3 = " . $error; 
-	          } //if
+	          } //if result3
             }//foreach
+
+ 	  		foreach($consArray as $w) {
+				$w = addslashes($w); 
+				$sql4 = "INSERT INTO QuestionsConstraints (questionId, constraintext) VALUES ('$id', '$w')"; 
+	          if (! $result4  = $conn->query($sql4)) {
+                    $sqlerror4  = $conn->error; 
+                    $error .= "sql4 : " . $sqlerror4  . " "; 
+                  	$write = $error . "\n"; autolog($write, $target); 
+	          } //if result4
+		 	}//foreach consarray as w
 
       }//else
 
@@ -88,9 +96,11 @@ if(! empty($decoder))  {
       
       $question = stripslashes($question);
       $category = stripslashes($category);
-      $questionobj  = array("id" => $id, "desc" => $question, "topic" => $category, "diff" => $difficulty, "tests" => $cases); 
-     // $feedback = array("Type" => "AddQ", "Id" => $id, "Error" => $error, "Desc" => $question, "Topic" => $category, "Difficulty" => $difficulty, "Tests" => $cases);  
+      $questionobj  = array("id" => $id, "desc" => $question, "topic" => $category, "cons" => $consArray, "diff" => $difficulty, "tests" => $cases); 
+	  $write = "formed the questiobObj, here: \n"; 
+	  $write .= print_r($questionobj, true) . "\n"; autolog($write, $target); 
       $feedback = array("type" => "addQ", "error" => $error, "que" => $questionobj); 
+	 
       $recoil = json_encode($feedback); 
       if ($recoil == false) {
               return "backend tried to encode JSON and failed."; 
@@ -101,32 +111,5 @@ if(! empty($decoder))  {
   } //addQUEST(); 
 
 
-
-// echo json_encode($backPACK); 
-
-/*
-
-$sql2    = "INSERT INTO Questions (Id, question, difficulty,signature,category) VALUES ('$id','$question', '$difficulty','$signature','$category')";
-$result2 = $conn->query($sql2);
-
-$c       = count($cases);
-
-for ($x = 0; $x < $c; $x++) {
-    $sql4    = "INSERT INTO TestCasess (Id, QuestionId, testCases, answer)
-       VALUES('$id','$id', '$mycases[$x]', 'null')";
-       $result4 = $conn->query($sql4);
-}
-if ($result4) {
-    $log = array(
-        "Response" => "Successfully Inserted"
-    );
-    echo json_encode($log, true);
-} else {
-    $log = array(
-        "Response" => "Just Quit"
-    );
-    echo json_encode($log, true);
-}
-*/
 mysqli_close($conn);
 ?>
