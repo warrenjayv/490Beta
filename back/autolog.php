@@ -17,5 +17,17 @@ function autolog($input, $target) {
 
 }//autolog() 
 
+function autoclear($target) {
+  if (! $file = fopen($target, 'w')){
+    echo "'autolog.txt' failed to 'fopen' to clear \n";
+    return 0; 
+  } else {
+
+    if (! fwrite($file, "\n")) {
+      echo "clearing 'autolog.txt' failed \n";
+      return 0;
+    }  
+  }
+}//autolog()
 
 ?>

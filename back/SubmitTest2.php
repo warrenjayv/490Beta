@@ -1,6 +1,9 @@
 <?php
 date_default_timezone_set("America/New_York"); 
 
+echo "HTTP 402: still working on it!";
+return 0;
+
 include 'dblogin_interface.php';
 include 'autolog.php'; 
 include 'targets.php'; 
@@ -16,8 +19,13 @@ $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
 
 $write = "[+] addA page accessed " . date("Y-m-d h:i:sa") . "\n";  
-$write .= "page received data. processing the data below:\n"; autolog($write, $target);
-
+$write .= "+ page received data. processing the data below:\n";
+$write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
+autolog($write, $target); 
+if (filesize($target) >= 100000) {
+	autoclear($target); 
+	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+}
 /*testpoint*/ 
 /*
 $decoder = array('type' => 'addA', 'id' => '1234'); 
@@ -59,20 +67,22 @@ function submitExam($conn, $decoder) {
 
  //   $target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/addA.txt'; 
     $target = targetIs('addA'); 
-   	$test = $decoder['test']; 
-	$testId = $test['id']; 
+    $test = $decoder['test']; 
+    $testId = $test['id']; 
     $answers = $decoder['answers']; /*array of answers*/
     $comment = $decoder['comment'];
-	$qIds = getqIds($conn, $testId);   //array of qIds
+    $remarks = $decoder['remarks'];   
+   $qIds = getqIds($conn, $testId);   //array of qIds
 
     $comment = addslashes($comment);
 
-    foreach($answers as $x) {
+    foreach($answers as $key=>$x) {
 			
-		$index = array_search($x, $answers);     
-		$qId = $qIds[$index]; 
-		$text = $x;
-		$text = addslashes($text);
+	      //$index = array_search($x, $answers);     
+            $index = $key; 
+	    $qId = $qIds[$index]; 
+ 	    $text = $x;
+	    $text = addslashes($text);
 
 	$write = "updating database with answer " . $text . " for testId " .
 	$testId . " where qId = " . $qId . " \n"; autolog($write, $target); 
@@ -167,5 +177,6 @@ function attemptObj($conn, $test, $answers, $grades, $comment, $feedback, $remar
 	$package = array("test" => $test, "answers" => $answers, "grades" => $grades, "comment" => $comment, "feedback" => $feedback, "remarks" => $remarks); 
 	return $package; 
 }//attemptObj 
+
 
 ?>

@@ -27,7 +27,12 @@ function testObject($conn, $id) {
     $target = targetIs('testB'); 
 
     $write = "[ + ] page accessed testB " . date("Y-m-d h:i:sa") . "\n"; 
-    autolog($write, $target); 
+    autolog($write, $target);
+	if (filesize($target) >= 100000) {
+		autoclear($target); 
+		$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+	}
+
 
     $write = "executing testObject() with testId = " . $id . "\n"; 
 	autolog($write, $target); 
@@ -75,9 +80,9 @@ function testObject($conn, $id) {
 				  
 				  $write = "obtaining points from each question id: " . $row2['questionId'] .
 				  " \n"; 
-				  $write .= "pts for this question : " . $row2['points'] . " \n"; 
+				  $write .= "pts for this question : " . $row2['maxpoints'] . " \n"; 
 				  autolog($write, $target); 
-				  array_push($ptsArray, $row2['points']); 
+				  array_push($ptsArray, $row2['maxpoints']); 
 				  
 				}//row2 msqi fetch 
 			}//sql2 if else
@@ -91,5 +96,3 @@ function testObject($conn, $id) {
   }//testobject() 
 
 ?>
-
-
