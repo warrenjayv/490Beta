@@ -1,8 +1,6 @@
 <?php
 date_default_timezone_set("America/New_York"); 
 
-echo "HTTP 402: still working on it!";
-return 0;
 
 include 'dblogin_interface.php';
 include 'autolog.php'; 
