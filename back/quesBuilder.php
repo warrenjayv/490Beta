@@ -2,7 +2,7 @@
 
 date_default_timezone_set("America/New_York"); 
 include 'getQuestion.php'; 
-include 'dblogin_interface.php'; 
+// include 'dblogin_interface.php'; 
 
 function quesObject($conn, $qId) {
 	$arrayCases = array(); 
