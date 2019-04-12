@@ -11,7 +11,12 @@ $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
 
 $write  = "[ + ]  page accessed getT " . date("Y-m-d h:i:sa") . "\n"; 
-autolog($write,$target); 
+$write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
+autolog($write, $target); 
+if (filesize($target) >= 100000) {
+	autoclear($target); 
+	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+}
 
 if (! empty($decoder)) {
    $write = "data received...\n"; 
@@ -98,7 +103,7 @@ function testObject($conn, $testId, $rel, $sub) {
          $write = print_r($row1, true) . "\n"; autolog($write, $target); 
 	 $testName = $row1['testName']; 
 	 array_push($arrayofQIds, $row1['questionId']);
-	 array_push($arrayofPts, $row1['points']); 
+	 array_push($arrayofPts, $row1['maxpoints']); 
 	 //var_dump($testName);  echo "<br><br>";
       }
       $atemp = array("desc" => $testName); 

@@ -1,26 +1,25 @@
 <?php
 
-/*disclaimer, locked is called to run this program; comment it to disable the program*/
-/*its just here so that when editing the file, no body can curl it when we are editing*/
-/*
-$lockmsg = array("type" => "addT", "error" => "addT is being edited and currently locked."); 
-echo json_encode($lockmsg); 
-*/
+include 'dblogin_interface.php';
+include 'autolog.php'; 
+include 'targets.php'; 
 
- locked();  /* ********************* program ******************** */ 
-
-function locked() {
+$target = targetIs('addT'); 
 date_default_timezone_set("America/New_York");
 $write = "page access " . date("Y-m-d h:i:sa") . "\n";
-autolog($write); 
-//lastupdate: 03/19/2019 8:13 PM
+$write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
+autolog($write, $target); 
+if (filesize($target) >= 100000) {
+	autoclear($target); 
+	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+}
 
-include 'dblogin_interface.php';
+//lastupdate: 03/19/2019 8:13 PM
 
 $response   = file_get_contents('php://input');
 $decoder    = json_decode($response, true);
-$write = "received data \n"; autolog($write); 
-$write = print_r($decoder, true) . "\n"; autolog($write); 
+$write = "received data \n"; autolog($write, $target); 
+$write = print_r($decoder, true) . "\n"; autolog($write, $target); 
 /* testpoint 
 $decoder = array("desc" => "testing addT false id", "rel" => "0", "ques" => array('0'
 => array('id' => '1001'), '1' => array('id' => '1002')));
@@ -36,36 +35,36 @@ if ($decoder != null) { //ensures this page doesn't run a query  if no input is 
     echo $feedback; 
   }  
 } else {
-  $error .= "backend received nothing.";
-  $write = "backend received nothing.\n"; autolog($write);
+  $error = "backend received nothing.";
+  $write = "backend received nothing.\n"; autolog($write, $target);
   $report = array("type" => "addT", "error" => $error);
   echo json_encode ($report); 
   } //if decoder != null;   
-} //locked
 
 function addExam($conn, $decoder) {
+  $target = targetIs('addT'); 
   $release = $decoder['rel'];
   $testName = $decoder['desc'];
   $testName = addslashes($testName);
   $questions = $decoder['ques']; 
   $points = $decoder['pts']; 
 
-  $write = "checking each questionId to ensure they are valid\n"; autolog($write); 
+  $write = "checking each questionId to ensure they are valid\n"; autolog($write, $target); 
   $errorcount = 0; 
 
  foreach ($questions as $a) {
       // $index = array_search($a, array_values($questions)); 
-       $write = "checking id: " . $a['id']  . "\n"; autolog($write); 
+       $write = "checking id: " . $a['id']  . "\n"; autolog($write, $target); 
        $qIdnum = $a['id']; 
        if (! qIdcheck($conn, $qIdnum)) {
           $errorcount += 1; 
           $error .= "an invalid question Id was detected.";
-          $write = $error . "\n"; autolog($write); 
+          $write = $error . "\n"; autolog($write, $target); 
       }
   }//foreach $questions as $a
 
   if ($errorcount > 0) {
-       $write = "terminating program because of invalid question ids.\n"; autolog($write); 
+       $write = "terminating program because of invalid question ids.\n"; autolog($write, $target); 
        $error = "terminating program because of invalid question ids."; 
        $report = array("type" => "addT", "error" => $error); 
        return  json_encode ($report); 
@@ -103,21 +102,21 @@ function addExam($conn, $decoder) {
       $index = array_search($x, array_values($questions)); 
       $qId = $x['id'];
       /* prints the ids here: */
-      $write = $qId . "\n" ; autolog($write); 
+      $write = $qId . "\n" ; autolog($write, $target); 
       //ensure the qId is in the database, if not, get rid of it. 
       if (! qIdcheck($conn, $qId)) {
           $error .= "an invalid question Id was detected.";
-          $write = $error . "\n"; autolog($write); 
+          $write = $error . "\n"; autolog($write, $target); 
 	  break; 
       }
       $write = "insert to QuestionStudentRelation: test " . $id . " qId " . $qId .
-      " points " . $points[$index] . "\n"; autolog($write); 
+      " points " . $points[$index] . "\n"; autolog($write, $target ); 
       $sql3 = "INSERT INTO QuestionStudentRelation (testId, questionId, testName,
-      points) VALUES ('$id', '$qId', '$testName', '$points[$index]') "; 
+      maxpoints, points ) VALUES ('$id', '$qId', '$testName', '$points[$index]', '$points[$index]') "; 
       if ( ! $result3 = $conn->query($sql3)) { 
 	$sqlerror3 = $conn->error; 
 	$error .= "sql3: " . $sqlerror3 . " ";
-	$write = "error: " . $error . "\n"; autolog($write); 
+	$write = "error: " . $error . "\n"; autolog($write, $target); 
       } else {
 	//succesful insert into table 'QuestionStudentRelation'
       } 
@@ -163,16 +162,17 @@ function addExam($conn, $decoder) {
   $points)/*test*/)/*type*/; 
 
   $write = "addT() function results: \n"; 
-  $write .= print_r($package, true) . "\n"; autolog($write); 
+  $write .= print_r($package, true) . "\n"; autolog($write, $target); 
   return json_encode($package); 
 
 }//addexam ()
 
 function qIdcheck($conn, $qId) {
+    $target = targetIs('addT'); 
     /*purpose: ensure that id is in the database, if not get rid of it.*/
     $write = "ensure that id is in the database. running qIdcheck()\n";
-    autolog($write); 
-    $write = "checking the database for " . $qId . "\n"; autolog($write); 
+    autolog($write, $target); 
+    $write = "checking the database for " . $qId . "\n"; autolog($write, $target); 
     $sql = "SELECT * FROM Question WHERE Id = '$qId' ";
     if (! $result = $conn->query($sql)) {
         $errorsql = $conn->error;
@@ -181,7 +181,7 @@ function qIdcheck($conn, $qId) {
       
          $rowcount = $result->num_rows;
 	 $write = "qIdcheck - number of rows " . $rowcount . "\n"; 
-	 autolog($write); 
+	 autolog($write, $target); 
 	 if ($rowcount < 1) {
              return 0; //invalid qid return false
 	 } else {
@@ -189,18 +189,4 @@ function qIdcheck($conn, $qId) {
 	 }
     }
 }//qIdcheck()
-
-function autolog($input) {
-  if (! $file = fopen('/afs/cad/u/r/d/rd248/public_html/download/beta/log.txt', 'a')){
-    echo ".txt failed to 'fopen' to write \n";
-    return 0; 
-  } else {
-
-    if (! fwrite($file, $input)) {
-      echo "autolog in MakeExam2.php  failed to write \n";
-      return 0;
-    }
-    return 1;
-  }
-}//autolog()
 ?>

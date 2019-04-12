@@ -19,15 +19,21 @@ function targetIs($str) {
 	if ($str == 'quesB') {
           return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt';
 	}
-	if ($str == 'quesB') {
-          return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt';
-	}
 	if ($str == 'addQ') {
           return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt';
 	}
+        if ($str == 'auto') {
+       	   return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt'; 
+        }
+	if ($str == 'getAns') {
+       	   return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt'; 
+        }
+        if ($str == 'getQ') {
+       	   return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt'; 
+        } 
 }
 
 /*
-return 'afs/cad/u/r/d/rd248/public_html/download/beta
+return 'afs/cad/u/r/d/rd248/public_html/download/beta/log.txt'; 
 */
 ?>
