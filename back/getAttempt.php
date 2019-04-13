@@ -13,9 +13,9 @@ $decoder = json_decode($response, true);
 $write = "[ + ] page accessed getA " . date("Y-m-d h:i:sa") . "\n"; 
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
-if (filesize($target) >= 100000) {
+if (filesize($target) >= 52428800) {
 	autoclear($target); 
-	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+	$write = "+ the log reached 50 mb; it has been cleared \n"; autolog($write, $target); 
 }
 
 /*testpoint*/
@@ -123,7 +123,7 @@ function ansObject($conn, $id) {
         array_push($grades, $row['points']); 
 				$afeedbacks = getFeedbacks($conn, $id, $row['questionId']); 
 				array_push($feedbacks, $afeedbacks); 
-				array_push($comments, $row['comment']); 
+				array_push($comments, $row['remarks']); 
 			}//while row mysqli 
 			$ansArray = array('answers' => $userAnswers, 'grades' => $grades, 'feedback' => $feedbacks, 'remarks' => $comments); 
 

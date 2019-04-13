@@ -70,8 +70,7 @@ function submitExam($conn, $decoder) {
     $answers = $decoder['answers']; /*array of answers*/
     $comment = $decoder['comment'];
     $remarks = $decoder['remarks'];   
-   $qIds = getqIds($conn, $testId);   //array of qIds
-
+    $qIds = getqIds($conn, $testId);   //array of qIds
     $comment = addslashes($comment);
 
     foreach($answers as $key=>$x) {
@@ -86,13 +85,12 @@ function submitExam($conn, $decoder) {
 	$testId . " where qId = " . $qId . " \n"; autolog($write, $target); 
 
 	// echo "<br<br>text = " . $text . "<br><br>";
-	$sql1 = "UPDATE rd248.QuestionStudentRelation SET userAnswer = '$text',
-	comment = '$comment' WHERE QuestionStudentRelation.questionId =
-	'$qId' AND QuestionStudentRelation.testId = '$testId' ";
+	$sql1 = "UPDATE rd248.QuestionStudentRelation SET userAnswer = '$text'
+	WHERE QuestionStudentRelation.questionId = '$qId' AND QuestionStudentRelation.testId = '$testId' ";
 	if ( ! $result1 = $conn->query($sql1)) { 
 	    $sqlerror1 = $conn->error; 
 	    $error .= "sql1: " . $sqlerror1 . " "; 
-	    $write = $error . "\n"; autolog($write);
+	    $write = $error . "\n"; autolog($write, $target);
 	} else { 
 	    /* succesfully updated table */
 	    /* update sub to 1 */
@@ -107,6 +105,15 @@ function submitExam($conn, $decoder) {
 	}//if sql1
     }//foreach answers as x
 
+    /* TASK: add the comments on the Test table */ 
+       $comment = addslashes($comment); 
+       $sql2 = "UPDATE rd248.Test SET comment = '$comment' WHERE Test.Id = '$testId'"; 
+       if (! $result2 = $conn->query($sql2)) {
+ 	   $sqlerror2 = $conn->error;
+	   $error .= "sql2: " . $sqlerror2 . " "; 
+	   $write = $error . "\n"; autolog($write, $target); 
+       } else { /* success update table */ }  //if sql2
+	 
     if ($error === null) {
 	$error = 0; 
     }

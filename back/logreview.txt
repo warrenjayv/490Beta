@@ -1,0 +1,450 @@
+
++ the log reached 10 mb; it has been cleared 
+executing quesObject() with qId = 1
+obtaining testcases for qId = 1
+building the ques object (temp1)... 
+Array
+(
+    [id] => 1
+    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
+    [topic] => Operators
+    [diff] => 2
+)
+
+the ques object with array cases (temp2)... 
+Array
+(
+    [id] => 1
+    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
+    [topic] => Operators
+    [diff] => 2
+    [tests] => Array
+        (
+            [0] => operation('+',3,3)=6
+            [1] => operation('-',3,3)=0
+            [2] => operation('/',3,3)=1
+            [3] => operation('*',3,3)=9
+            [4] => operation('%',3,3)=0
+            [5] => operation('?',3,3)="error"
+            [6] => operation('hi',3,3)="error"
+        )
+
+)
+question object for test built!
+
+obtaining points from each question id: 1 
+pts for this question : 100 
+executing testObject() for test id : 2 
+Array
+(
+    [id] => 2
+    [desc] => Vector Pioneer 1
+    [rel] => 1
+    [sub] => 1
+    [ques] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 3
+                    [desc] => Write a function called addThree() that takes three integer parameters and returns their sum.
+                    [topic] => Adding Integers
+                    [diff] => 1
+                    [tests] => Array
+                        (
+                            [0] => addThree(100, 200, 300)=600
+                            [1] => addThree(-7, 0, 19)=12
+                            [2] => addThree(-1,-1,-1)=-3
+                            [3] => addThree(1,2,3)=6
+                            [4] => addThree(4,5,6)=15
+                            [5] => addThree(0,0,0)=0
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 5
+                    [desc] => Write a function called sub() that takes two integers and prints their difference.
+                    [topic] => Subtraction
+                    [diff] => 1
+                    [tests] => Array
+                        (
+                            [0] => sub(3,4)="-1"
+                            [1] => sub(4,3)="1"
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 1
+                    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
+                    [topic] => Operators
+                    [diff] => 2
+                    [tests] => Array
+                        (
+                            [0] => operation('+',3,3)=6
+                            [1] => operation('-',3,3)=0
+                            [2] => operation('/',3,3)=1
+                            [3] => operation('*',3,3)=9
+                            [4] => operation('%',3,3)=0
+                            [5] => operation('?',3,3)="error"
+                            [6] => operation('hi',3,3)="error"
+                        )
+
+                )
+
+        )
+
+    [pts] => Array
+        (
+            [0] => 100
+            [1] => 100
+            [2] => 100
+        )
+
+)
+
+pushed test 2 into testArray
+executing getFeedbacks() for testId 2 & qId 3
+Array
+(
+    [0] => g5p missing colon [:] in user answer
+    [1] => n0p expecting function [addThree] in answer found!
+    [2] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+    [3] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+    [4] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+    [5] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+    [6] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+    [7] => n0p user program succesfully executed. 
+)
+
+executing getFeedbacks() for testId 2 & qId 5
+Array
+(
+    [0] => b5p missing colon [:] in user answer
+    [1] => n0p expecting function [sub] in answer found!
+    [2] => b19p called [sub(3,4)]  expected answer: ["-1"], got user answer ["-1"]
+    [3] => b15.2p called [sub(4,3)]  expected answer: ["1"], got user answer ["1"]
+    [4] => n0p user program succesfully executed. 
+    [5] => b12.2p constraint [print]  was not found.
+)
+
+executing getFeedbacks() for testId 2 & qId 1
+Array
+(
+    [0] => g5p missing colon [:] in user answer
+    [1] => n0p expecting function [operation] in answer found!
+    [2] => g20p called [operation('+',3,3)], expected: [6], got user answer [6]
+    [3] => g20p called [operation('/',3,3)], expected: [1], got user answer [1]
+    [4] => g20p called [operation('*',3,3)], expected: [9], got user answer [9]
+    [5] => b20p called [operation('?',3,3)]  expected answer: ["error"], got user answer ["error"]
+    [6] => b16p called [operation('hi',3,3)]  expected answer: ["error"], got user answer ["error"]
+    [7] => n0p user program succesfully executed. 
+)
+
+ansObject() formed the ansArray
+Array
+(
+    [answers] => Array
+        (
+            [0] => def addThree(a, b, c):
+    return a + b + c
+            [1] => def sub(a, b)
+    return a - b
+            [2] => def operation(op, a, b):
+    if (op == '+'):
+           return a+b
+    if (op == '-'):
+           return a-b
+    if (op == '*'):
+           return a*b
+    if (op == '/'):
+           return a/b
+    if (op == '%'):
+           return a%b
+     
+        )
+
+    [grades] => Array
+        (
+            [0] => 100
+            [1] => 49
+            [2] => 64
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [addThree] in answer found!
+                    [2] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+                    [3] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+                    [4] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+                    [5] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+                    [6] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+            [1] => Array
+                (
+                    [0] => b5p missing colon [:] in user answer
+                    [1] => n0p expecting function [sub] in answer found!
+                    [2] => b19p called [sub(3,4)]  expected answer: ["-1"], got user answer ["-1"]
+                    [3] => b15.2p called [sub(4,3)]  expected answer: ["1"], got user answer ["1"]
+                    [4] => n0p user program succesfully executed. 
+                    [5] => b12.2p constraint [print]  was not found.
+                )
+
+            [2] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [operation] in answer found!
+                    [2] => g20p called [operation('+',3,3)], expected: [6], got user answer [6]
+                    [3] => g20p called [operation('/',3,3)], expected: [1], got user answer [1]
+                    [4] => g20p called [operation('*',3,3)], expected: [9], got user answer [9]
+                    [5] => b20p called [operation('?',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [6] => b16p called [operation('hi',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+        )
+
+    [remarks] => Array
+        (
+            [0] => 
+            [1] => 
+            [2] => 
+        )
+
+)
+
+executing ansObject() for test id : 2 
+ansObject() was succesful...output: 
+Array
+(
+    [answers] => Array
+        (
+            [0] => def addThree(a, b, c):
+    return a + b + c
+            [1] => def sub(a, b)
+    return a - b
+            [2] => def operation(op, a, b):
+    if (op == '+'):
+           return a+b
+    if (op == '-'):
+           return a-b
+    if (op == '*'):
+           return a*b
+    if (op == '/'):
+           return a/b
+    if (op == '%'):
+           return a%b
+     
+        )
+
+    [grades] => Array
+        (
+            [0] => 100
+            [1] => 49
+            [2] => 64
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [addThree] in answer found!
+                    [2] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+                    [3] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+                    [4] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+                    [5] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+                    [6] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+            [1] => Array
+                (
+                    [0] => b5p missing colon [:] in user answer
+                    [1] => n0p expecting function [sub] in answer found!
+                    [2] => b19p called [sub(3,4)]  expected answer: ["-1"], got user answer ["-1"]
+                    [3] => b15.2p called [sub(4,3)]  expected answer: ["1"], got user answer ["1"]
+                    [4] => n0p user program succesfully executed. 
+                    [5] => b12.2p constraint [print]  was not found.
+                )
+
+            [2] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [operation] in answer found!
+                    [2] => g20p called [operation('+',3,3)], expected: [6], got user answer [6]
+                    [3] => g20p called [operation('/',3,3)], expected: [1], got user answer [1]
+                    [4] => g20p called [operation('*',3,3)], expected: [9], got user answer [9]
+                    [5] => b20p called [operation('?',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [6] => b16p called [operation('hi',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+        )
+
+    [remarks] => Array
+        (
+            [0] => 
+            [1] => 
+            [2] => 
+        )
+
+)
+
+warning! ansObject is an array!
+building the attempt object...
+Array
+(
+    [test] => Array
+        (
+            [id] => 2
+            [desc] => Vector Pioneer 1
+            [rel] => 1
+            [sub] => 1
+            [ques] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 3
+                            [desc] => Write a function called addThree() that takes three integer parameters and returns their sum.
+                            [topic] => Adding Integers
+                            [diff] => 1
+                            [tests] => Array
+                                (
+                                    [0] => addThree(100, 200, 300)=600
+                                    [1] => addThree(-7, 0, 19)=12
+                                    [2] => addThree(-1,-1,-1)=-3
+                                    [3] => addThree(1,2,3)=6
+                                    [4] => addThree(4,5,6)=15
+                                    [5] => addThree(0,0,0)=0
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 5
+                            [desc] => Write a function called sub() that takes two integers and prints their difference.
+                            [topic] => Subtraction
+                            [diff] => 1
+                            [tests] => Array
+                                (
+                                    [0] => sub(3,4)="-1"
+                                    [1] => sub(4,3)="1"
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 1
+                            [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
+                            [topic] => Operators
+                            [diff] => 2
+                            [tests] => Array
+                                (
+                                    [0] => operation('+',3,3)=6
+                                    [1] => operation('-',3,3)=0
+                                    [2] => operation('/',3,3)=1
+                                    [3] => operation('*',3,3)=9
+                                    [4] => operation('%',3,3)=0
+                                    [5] => operation('?',3,3)="error"
+                                    [6] => operation('hi',3,3)="error"
+                                )
+
+                        )
+
+                )
+
+            [pts] => Array
+                (
+                    [0] => 100
+                    [1] => 100
+                    [2] => 100
+                )
+
+        )
+
+    [answers] => Array
+        (
+            [0] => def addThree(a, b, c):
+    return a + b + c
+            [1] => def sub(a, b)
+    return a - b
+            [2] => def operation(op, a, b):
+    if (op == '+'):
+           return a+b
+    if (op == '-'):
+           return a-b
+    if (op == '*'):
+           return a*b
+    if (op == '/'):
+           return a/b
+    if (op == '%'):
+           return a%b
+     
+        )
+
+    [grades] => Array
+        (
+            [0] => 100
+            [1] => 49
+            [2] => 64
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [addThree] in answer found!
+                    [2] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+                    [3] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+                    [4] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+                    [5] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+                    [6] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+            [1] => Array
+                (
+                    [0] => b5p missing colon [:] in user answer
+                    [1] => n0p expecting function [sub] in answer found!
+                    [2] => b19p called [sub(3,4)]  expected answer: ["-1"], got user answer ["-1"]
+                    [3] => b15.2p called [sub(4,3)]  expected answer: ["1"], got user answer ["1"]
+                    [4] => n0p user program succesfully executed. 
+                    [5] => b12.2p constraint [print]  was not found.
+                )
+
+            [2] => Array
+                (
+                    [0] => g5p missing colon [:] in user answer
+                    [1] => n0p expecting function [operation] in answer found!
+                    [2] => g20p called [operation('+',3,3)], expected: [6], got user answer [6]
+                    [3] => g20p called [operation('/',3,3)], expected: [1], got user answer [1]
+                    [4] => g20p called [operation('*',3,3)], expected: [9], got user answer [9]
+                    [5] => b20p called [operation('?',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [6] => b16p called [operation('hi',3,3)]  expected answer: ["error"], got user answer ["error"]
+                    [7] => n0p user program succesfully executed. 
+                )
+
+        )
+
+    [remarks] => Array
+        (
+            [0] => 
+            [1] => 
+            [2] => 
+        )
+
+)
+pushing the attempt object into array of attempts
+executing getAttempt()...output:
+{"type":"getA","error":0,"attempts":[{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3","tests":["strMult(\"hello\",1)=\"hello\"","strMult(\"up\", 4)=\"upupupup\"","strMult(\"hey\", 3)=\"heyheyhey\"","strMult(\"aba\", 2)=\"abaaba\""]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","diff":"1","tests":["sub(3,4)=\"-1\"","sub(4,3)=\"1\""]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["20","50","25"],"feedback":[[],[],[]],"remarks":["1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon."]},{"test":{"id":"2","desc":"Vector Pioneer 1","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","diff":"1","tests":["sub(3,4)=\"-1\"","sub(4,3)=\"1\""]},{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=\"error\"","operation('hi',3,3)=\"error\""]}],"pts":["100","100","100"]},"answers":["def addThree(a, b, c):\n    return a + b + c","def sub(a, b)\n    return a - b","def operation(op, a, b):\n    if (op == '+'):\n           return a+b\n    if (op == '-'):\n           return a-b\n    if (op == '*'):\n           return a*b\n    if (op == '\/'):\n           return a\/b\n    if (op == '%'):\n           return a%b\n     "],"grades":["100","49","64"],"feedback":[["g5p missing colon [:] in user answer","n0p expecting function [addThree] in answer found!","g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]","g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]","g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]","g20p called [addThree(1,2,3)], expected: [6], got user answer [6]","g20p called [addThree(4,5,6)], expected: [15], got user answer [15]","n0p user program succesfully executed. "],["b5p missing colon [:] in user answer","n0p expecting function [sub] in answer found!","b19p called [sub(3,4)]  expected answer: [\"-1\"], got user answer [\"-1\"]","b15.2p called [sub(4,3)]  expected answer: [\"1\"], got user answer [\"1\"]","n0p user program succesfully executed. ","b12.2p constraint [print]  was not found."],["g5p missing colon [:] in user answer","n0p expecting function [operation] in answer found!","g20p called [operation('+',3,3)], expected: [6], got user answer [6]","g20p called [operation('\/',3,3)], expected: [1], got user answer [1]","g20p called [operation('*',3,3)], expected: [9], got user answer [9]","b20p called [operation('?',3,3)]  expected answer: [\"error\"], got user answer [\"error\"]","b16p called [operation('hi',3,3)]  expected answer: [\"error\"], got user answer [\"error\"]","n0p user program succesfully executed. "]],"remarks":[null,null,null]}]}
