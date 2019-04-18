@@ -1,50 +1,76 @@
 
-+ the log reached 10 mb; it has been cleared 
-executing quesObject() with qId = 2
-obtaining testcases for qId = 2
-building the ques object (temp1)... 
++ log reached max; it is cleared 
++ calling getCons() ... 
++ calling getCons() ... 
++ pushing into cons array : 
+print
++ calling getCons() ... 
++ calling getCons() ... 
++ pushing into cons array : 
+for
++ pushing into cons array : 
+print
++ calling getCons() ... 
++ pushing into cons array : 
+while
++ calling getCons() ... 
++ getQuest() produced the object:
 Array
 (
-    [id] => 2
-    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-    [topic] => Printing string
-    [diff] => 3
-)
-
-the ques object with array cases (temp2)... 
-Array
-(
-    [id] => 2
-    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-    [topic] => Printing string
-    [diff] => 3
-    [tests] => Array
-        (
-            [0] => strMult("hello",1)=hello
-            [1] => strMult("up", 4)=upupupup
-            [2] => strMult("hey", 3)=heyheyhey
-            [3] => strMult("aba", 2)=abaaba
-        )
-
-)
-question object for test built!
-
-obtaining points from each question id: 2 
-pts for this question : 120 
-executing testObject() for test id : 2 
-Array
-(
-    [id] => 2
-    [desc] => Vector Pioneer 2
-    [rel] => 1
-    [sub] => 1
+    [type] => getQ
+    [error] => 0
     [ques] => Array
         (
             [0] => Array
                 (
+                    [id] => 3
+                    [desc] => Write a function called addThree() that takes three integer parameters and returns their sum.
+                    [topic] => Adding Integers
+                    [cons] => Array
+                        (
+                        )
+
+                    [diff] => 1
+                    [tests] => Array
+                        (
+                            [0] => addThree(100, 200, 300)=600
+                            [1] => addThree(-7, 0, 19)=12
+                            [2] => addThree(-1,-1,-1)=-3
+                            [3] => addThree(1,2,3)=6
+                            [4] => addThree(4,5,6)=15
+                            [5] => addThree(0,0,0)=0
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 5
+                    [desc] => Write a function called sub() that takes two integers and prints their difference.
+                    [topic] => Subtraction
+                    [cons] => Array
+                        (
+                            [0] => print
+                        )
+
+                    [diff] => 1
+                    [tests] => Array
+                        (
+                            [0] => sub(3,4)="-1"
+                            [1] => sub(4,3)="1"
+                        )
+
+                )
+
+            [2] => Array
+                (
                     [id] => 1
                     [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
                     [topic] => Operators
+                    [cons] => Array
+                        (
+                        )
+
                     [diff] => 2
                     [tests] => Array
                         (
@@ -59,11 +85,17 @@ Array
 
                 )
 
-            [1] => Array
+            [3] => Array
                 (
                     [id] => 2
                     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
                     [topic] => Printing string
+                    [cons] => Array
+                        (
+                            [0] => for
+                            [1] => print
+                        )
+
                     [diff] => 3
                     [tests] => Array
                         (
@@ -75,710 +107,66 @@ Array
 
                 )
 
-        )
-
-    [pts] => Array
-        (
-            [0] => 120
-            [1] => 120
-        )
-
-)
-
-pushed test 2 into testArray
-executing getFeedbacks() for testId 2 & qId 1
-Array
-(
-    [0] => g5p missing colon [:] in user answer
-    [1] => b6p expecting function name [operation] in answer was not found!
-    [2] => b91.2p user program failed to execute. 
-)
-
-executing getFeedbacks() for testId 2 & qId 2
-Array
-(
-    [0] => g5p missing colon [:] in user answer
-    [1] => n0p expecting function [strMult] in answer found!
-    [2] => g20p called [strMult("hello",1)], expected: [hello], got user answer [hello]
-    [3] => g20p called [strMult("up", 4)], expected: [upupupup], got user answer [upupupup]
-    [4] => g20p called [strMult("hey", 3)], expected: [heyheyhey], got user answer [heyheyhey]
-    [5] => g20p called [strMult("aba", 2)], expected: [abaaba], got user answer [abaaba]
-    [6] => n0p user program succesfully executed. 
-    [7] => b24p constraint [for]  was not found.
-    [8] => b19.2p constraint [print]  was not found.
-)
-
-ansObject() formed the ansArray
-Array
-(
-    [answers] => Array
-        (
-            [0] => def opernoob(op, a, b):
-    if (op == '+'):
-       return a+b
-    if (op == '-'):
-       return a-b
-    if (op == '*'):
-       return a*b
-    if (op == '/'):
-       return a/b
-    if (op == '%'):
-       return a%b
-    if (op == '?'):
-       return a?b 
-            [1] => def strMult(s, n):
-    return s * n
-        )
-
-    [grades] => Array
-        (
-            [0] => 23
-            [1] => 77
-        )
-
-    [feedback] => Array
-        (
-            [0] => Array
+            [4] => Array
                 (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => b6p expecting function name [operation] in answer was not found!
-                    [2] => b91.2p user program failed to execute. 
-                )
-
-            [1] => Array
-                (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => n0p expecting function [strMult] in answer found!
-                    [2] => g20p called [strMult("hello",1)], expected: [hello], got user answer [hello]
-                    [3] => g20p called [strMult("up", 4)], expected: [upupupup], got user answer [upupupup]
-                    [4] => g20p called [strMult("hey", 3)], expected: [heyheyhey], got user answer [heyheyhey]
-                    [5] => g20p called [strMult("aba", 2)], expected: [abaaba], got user answer [abaaba]
-                    [6] => n0p user program succesfully executed. 
-                    [7] => b24p constraint [for]  was not found.
-                    [8] => b19.2p constraint [print]  was not found.
-                )
-
-        )
-
-    [remarks] => Array
-        (
-            [0] => 
-            [1] => 
-        )
-
-)
-
-executing ansObject() for test id : 2 
-ansObject() was succesful...output: 
-Array
-(
-    [answers] => Array
-        (
-            [0] => def opernoob(op, a, b):
-    if (op == '+'):
-       return a+b
-    if (op == '-'):
-       return a-b
-    if (op == '*'):
-       return a*b
-    if (op == '/'):
-       return a/b
-    if (op == '%'):
-       return a%b
-    if (op == '?'):
-       return a?b 
-            [1] => def strMult(s, n):
-    return s * n
-        )
-
-    [grades] => Array
-        (
-            [0] => 23
-            [1] => 77
-        )
-
-    [feedback] => Array
-        (
-            [0] => Array
-                (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => b6p expecting function name [operation] in answer was not found!
-                    [2] => b91.2p user program failed to execute. 
-                )
-
-            [1] => Array
-                (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => n0p expecting function [strMult] in answer found!
-                    [2] => g20p called [strMult("hello",1)], expected: [hello], got user answer [hello]
-                    [3] => g20p called [strMult("up", 4)], expected: [upupupup], got user answer [upupupup]
-                    [4] => g20p called [strMult("hey", 3)], expected: [heyheyhey], got user answer [heyheyhey]
-                    [5] => g20p called [strMult("aba", 2)], expected: [abaaba], got user answer [abaaba]
-                    [6] => n0p user program succesfully executed. 
-                    [7] => b24p constraint [for]  was not found.
-                    [8] => b19.2p constraint [print]  was not found.
-                )
-
-        )
-
-    [remarks] => Array
-        (
-            [0] => 
-            [1] => 
-        )
-
-)
-
-warning! ansObject is an array!
-building the attempt object...
-Array
-(
-    [test] => Array
-        (
-            [id] => 2
-            [desc] => Vector Pioneer 2
-            [rel] => 1
-            [sub] => 1
-            [ques] => Array
-                (
-                    [0] => Array
+                    [id] => 4
+                    [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
+                    [topic] => Math Factorial
+                    [cons] => Array
                         (
-                            [id] => 1
-                            [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
-                            [topic] => Operators
-                            [diff] => 2
-                            [tests] => Array
-                                (
-                                    [0] => operation('+',3,3)=6
-                                    [1] => operation('-',3,3)=0
-                                    [2] => operation('/',3,3)=1
-                                    [3] => operation('*',3,3)=9
-                                    [4] => operation('%',3,3)=0
-                                    [5] => operation('?',3,3)="error"
-                                    [6] => operation('hi',3,3)="error"
-                                )
-
+                            [0] => while
                         )
 
-                    [1] => Array
+                    [diff] => 4
+                    [tests] => Array
                         (
-                            [id] => 2
-                            [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                            [topic] => Printing string
-                            [diff] => 3
-                            [tests] => Array
-                                (
-                                    [0] => strMult("hello",1)=hello
-                                    [1] => strMult("up", 4)=upupupup
-                                    [2] => strMult("hey", 3)=heyheyhey
-                                    [3] => strMult("aba", 2)=abaaba
-                                )
-
+                            [0] => factorial(2)=2
+                            [1] => factorial(5)=120
+                            [2] => factorial(3)=6
+                            [3] => factorial(1)=1
                         )
 
                 )
 
-            [pts] => Array
+            [5] => Array
                 (
-                    [0] => 120
-                    [1] => 120
+                    [id] => 6
+                    [desc] => Write a function called stringSub() which takes two parameters and returns their difference written out as a string. For instance stringSub(5,2) would return "three", and stringSub(50,9) would return "fourty-nine". Multi-word numbers should be hyphenated, and all characters should be lowercase. 
+                    [topic] => String Subtract
+                    [cons] => Array
+                        (
+                        )
+
+                    [diff] => 5
+                    [tests] => Array
+                        (
+                            [0] => stringSub(-3, -9)="six"
+                            [1] => stringSub(9, 9)="zero"
+                            [2] => stringSub(50,9)="fourty-nine"
+                            [3] => stringSub(5,2)="three"
+                        )
+
                 )
 
         )
 
-    [answers] => Array
+)
+
++  page accessed by getCons 2019-04-18 03:56:24pm
++ received data : 
+Array
+(
+    [type] => getA
+    [ids] => Array
         (
-            [0] => def opernoob(op, a, b):
-    if (op == '+'):
-       return a+b
-    if (op == '-'):
-       return a-b
-    if (op == '*'):
-       return a*b
-    if (op == '/'):
-       return a/b
-    if (op == '%'):
-       return a%b
-    if (op == '?'):
-       return a?b 
-            [1] => def strMult(s, n):
-    return s * n
-        )
-
-    [grades] => Array
-        (
-            [0] => 23
-            [1] => 77
-        )
-
-    [feedback] => Array
-        (
-            [0] => Array
-                (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => b6p expecting function name [operation] in answer was not found!
-                    [2] => b91.2p user program failed to execute. 
-                )
-
-            [1] => Array
-                (
-                    [0] => g5p missing colon [:] in user answer
-                    [1] => n0p expecting function [strMult] in answer found!
-                    [2] => g20p called [strMult("hello",1)], expected: [hello], got user answer [hello]
-                    [3] => g20p called [strMult("up", 4)], expected: [upupupup], got user answer [upupupup]
-                    [4] => g20p called [strMult("hey", 3)], expected: [heyheyhey], got user answer [heyheyhey]
-                    [5] => g20p called [strMult("aba", 2)], expected: [abaaba], got user answer [abaaba]
-                    [6] => n0p user program succesfully executed. 
-                    [7] => b24p constraint [for]  was not found.
-                    [8] => b19.2p constraint [print]  was not found.
-                )
-
-        )
-
-    [remarks] => Array
-        (
-            [0] => 
-            [1] => 
-        )
-
-)
-pushing the attempt object into array of attempts
-executing getAttempt()...output:
-{"type":"getA","error":0,"attempts":[{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","diff":"1","tests":["sub(3,4)=\"-1\"","sub(4,3)=\"1\""]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["20","32","5"],"feedback":[["g5p missing colon [:] in user answer","n0p expecting function [factorial] in answer found!","g20p called [factorial(2)], expected: [2], got user answer [2]","g20p called [factorial(5)], expected: [120], got user answer [120]","g20p called [factorial(3)], expected: [6], got user answer [6]","g20p called [factorial(1)], expected: [1], got user answer [1]","n0p user program succesfully executed. ","b5p constraint [while]  was not found."],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b10p constraint [for]  was not found.","b8p constraint [print]  was not found."],["b1.25p missing colon [:] in user answer","n0p expecting function [sub] in answer found!","b19.2p user program failed to execute. ","g20p constraint [print] was found."]],"remarks":["1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon."]},{"test":{"id":"2","desc":"Vector Pioneer 2","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=\"error\"","operation('hi',3,3)=\"error\""]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]}],"pts":["120","120"]},"answers":["def opernoob(op, a, b):\n    if (op == '+'):\n       return a+b\n    if (op == '-'):\n       return a-b\n    if (op == '*'):\n       return a*b\n    if (op == '\/'):\n       return a\/b\n    if (op == '%'):\n       return a%b\n    if (op == '?'):\n       return a?b ","def strMult(s, n):\n    return s * n"],"grades":["23","77"],"feedback":[["g5p missing colon [:] in user answer","b6p expecting function name [operation] in answer was not found!","b91.2p user program failed to execute. "],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b24p constraint [for]  was not found.","b19.2p constraint [print]  was not found."]],"remarks":["",""]}]}[ + ]  page accessed getT 2019-04-13 04:07:47am
-+ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 16613
-data received...
-Array
-(
-    [type] => getT
-    [rels] => Array
-        (
-            [0] => 1
-        )
-
-)
-select * from questionstudentrelation where testid = 1
-Array
-(
-    [Id] => 149
-    [attemptId] => 0
-    [userAnswer] => def factorial(n):
-    result = 1
-    for i in range(n):
-        if n == 0 or n == 1:
-            break;
-        else:
-            result *= n
-            n -= 1
-    return result
-    [feedback] => 
-    [points] => 20
-    [maxpoints] => 25
-    [testId] => 1
-    [questionId] => 4
-    [testName] => Quiz One
-    [remarks] => 1 should lose points for not using a while loop. 
-
-2 should lose points for not using a for loop and for not printing the answer. 
-
-3 should lose points for wrong name and for missing colon.
-)
-
-Array
-(
-    [Id] => 150
-    [attemptId] => 0
-    [userAnswer] => def strMult(s, n):
-    return s*n
-    [feedback] => 
-    [points] => 32
-    [maxpoints] => 50
-    [testId] => 1
-    [questionId] => 2
-    [testName] => Quiz One
-    [remarks] => 1 should lose points for not using a while loop. 
-
-2 should lose points for not using a for loop and for not printing the answer. 
-
-3 should lose points for wrong name and for missing colon.
-)
-
-Array
-(
-    [Id] => 151
-    [attemptId] => 0
-    [userAnswer] => def subtract(a,b)
-    print a - b
-    [feedback] => 
-    [points] => 5
-    [maxpoints] => 25
-    [testId] => 1
-    [questionId] => 5
-    [testName] => Quiz One
-    [remarks] => 1 should lose points for not using a while loop. 
-
-2 should lose points for not using a for loop and for not printing the answer. 
-
-3 should lose points for wrong name and for missing colon.
-)
-
-check the contents of temp..
-Array
-(
-    [id] => 1
-    [desc] => Quiz One
-    [rel] => 1
-    [sub] => 1
-)
-
-check the contents of arrayofPts...
-Array
-(
-    [0] => 25
-    [1] => 50
-    [2] => 25
-)
-
-array of questions ... 
-Array
-(
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 4
-                    [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
-                    [topic] => Math Factorial
-                    [diff] => 4
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-            [2] => Array
-                (
-                    [id] => 5
-                    [desc] => Write a function called sub() that takes two integers and prints their difference.
-                    [topic] => Subtraction
-                    [diff] => 1
-                )
-
         )
 
 )
 
-contents of temp with questions...
-Array
-(
-    [id] => 1
-    [desc] => Quiz One
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 4
-                    [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
-                    [topic] => Math Factorial
-                    [diff] => 4
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-            [2] => Array
-                (
-                    [id] => 5
-                    [desc] => Write a function called sub() that takes two integers and prints their difference.
-                    [topic] => Subtraction
-                    [diff] => 1
-                )
-
-        )
-
-)
-
-contents of temp with arrayofPts...
-Array
-(
-    [id] => 1
-    [desc] => Quiz One
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 4
-                    [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
-                    [topic] => Math Factorial
-                    [diff] => 4
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-            [2] => Array
-                (
-                    [id] => 5
-                    [desc] => Write a function called sub() that takes two integers and prints their difference.
-                    [topic] => Subtraction
-                    [diff] => 1
-                )
-
-        )
-
-    [pts] => Array
-        (
-            [0] => 25
-            [1] => 50
-            [2] => 25
-        )
-
-)
-
-formed the test object...
-Array
-(
-    [id] => 1
-    [desc] => Quiz One
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 4
-                    [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
-                    [topic] => Math Factorial
-                    [diff] => 4
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-            [2] => Array
-                (
-                    [id] => 5
-                    [desc] => Write a function called sub() that takes two integers and prints their difference.
-                    [topic] => Subtraction
-                    [diff] => 1
-                )
-
-        )
-
-    [pts] => Array
-        (
-            [0] => 25
-            [1] => 50
-            [2] => 25
-        )
-
-)
-select * from questionstudentrelation where testid = 2
-Array
-(
-    [Id] => 155
-    [attemptId] => 0
-    [userAnswer] => def opernoob(op, a, b):
-    if (op == '+'):
-       return a+b
-    if (op == '-'):
-       return a-b
-    if (op == '*'):
-       return a*b
-    if (op == '/'):
-       return a/b
-    if (op == '%'):
-       return a%b
-    if (op == '?'):
-       return a?b 
-    [feedback] => 
-    [points] => 23
-    [maxpoints] => 120
-    [testId] => 2
-    [questionId] => 1
-    [testName] => Vector Pioneer 2
-    [remarks] => 
-)
-
-Array
-(
-    [Id] => 156
-    [attemptId] => 0
-    [userAnswer] => def strMult(s, n):
-    return s * n
-    [feedback] => 
-    [points] => 77
-    [maxpoints] => 120
-    [testId] => 2
-    [questionId] => 2
-    [testName] => Vector Pioneer 2
-    [remarks] => 
-)
-
-check the contents of temp..
-Array
-(
-    [id] => 2
-    [desc] => Vector Pioneer 2
-    [rel] => 1
-    [sub] => 1
-)
-
-check the contents of arrayofPts...
-Array
-(
-    [0] => 120
-    [1] => 120
-)
-
-array of questions ... 
-Array
-(
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
-                    [topic] => Operators
-                    [diff] => 2
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-        )
-
-)
-
-contents of temp with questions...
-Array
-(
-    [id] => 2
-    [desc] => Vector Pioneer 2
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
-                    [topic] => Operators
-                    [diff] => 2
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-        )
-
-)
-
-contents of temp with arrayofPts...
-Array
-(
-    [id] => 2
-    [desc] => Vector Pioneer 2
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
-                    [topic] => Operators
-                    [diff] => 2
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-        )
-
-    [pts] => Array
-        (
-            [0] => 120
-            [1] => 120
-        )
-
-)
-
-formed the test object...
-Array
-(
-    [id] => 2
-    [desc] => Vector Pioneer 2
-    [rel] => 1
-    [sub] => 1
-    [ques] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
-                    [topic] => Operators
-                    [diff] => 2
-                )
-
-            [1] => Array
-                (
-                    [id] => 2
-                    [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
-                    [topic] => Printing string
-                    [diff] => 3
-                )
-
-        )
-
-    [pts] => Array
-        (
-            [0] => 120
-            [1] => 120
-        )
-
-)
-running getExam()...output:
-{"type":"getT","error":"0","tests":[{"id":"1","desc":"Quiz One","rel":1,"sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","diff":"4"},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3"},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","diff":"1"}],"pts":["25","50","25"]},{"id":"2","desc":"Vector Pioneer 2","rel":1,"sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","diff":"2"},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3"}],"pts":["120","120"]}]}[ + ] page accessed getA 2019-04-13 07:55:57am
-+ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 29494
++ getCons() in backend  was succesful. data: 
+[]
+[ + ] page accessed getA 2019-04-18 03:56:24pm
++ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 5617
 data received...
 Array
 (
@@ -791,7 +179,7 @@ Array
 
 decoder returned an empty array of ids! go get em!
 getallIds() is called!
-[ + ] page accessed testB 2019-04-13 07:55:57am
+[ + ] page accessed testB 2019-04-18 03:56:24pm
 executing testObject() with testId = 1
 SELECT * FROM Test WHERE Id = '1' 
 test being formed (temp1)...
@@ -812,7 +200,7 @@ Array
 )
 
 building question object for test...
-[ + ] page accessed quesB 2019-04-13 07:55:57am
+[ + ] page accessed quesB 2019-04-18 03:56:24pm
 executing quesObject() with qId = 4
 obtaining testcases for qId = 4
 building the ques object (temp1)... 
@@ -821,6 +209,11 @@ Array
     [id] => 4
     [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
     [topic] => Math Factorial
+    [cons] => Array
+        (
+            [0] => while
+        )
+
     [diff] => 4
 )
 
@@ -830,6 +223,11 @@ Array
     [id] => 4
     [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
     [topic] => Math Factorial
+    [cons] => Array
+        (
+            [0] => while
+        )
+
     [diff] => 4
     [tests] => Array
         (
@@ -844,7 +242,7 @@ question object for test built!
 
 obtaining points from each question id: 4 
 pts for this question : 25 
-[ + ] page accessed quesB 2019-04-13 07:55:57am
+[ + ] page accessed quesB 2019-04-18 03:56:24pm
 executing quesObject() with qId = 2
 obtaining testcases for qId = 2
 building the ques object (temp1)... 
@@ -853,6 +251,12 @@ Array
     [id] => 2
     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
     [topic] => Printing string
+    [cons] => Array
+        (
+            [0] => for
+            [1] => print
+        )
+
     [diff] => 3
 )
 
@@ -862,6 +266,12 @@ Array
     [id] => 2
     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
     [topic] => Printing string
+    [cons] => Array
+        (
+            [0] => for
+            [1] => print
+        )
+
     [diff] => 3
     [tests] => Array
         (
@@ -876,7 +286,7 @@ question object for test built!
 
 obtaining points from each question id: 2 
 pts for this question : 50 
-[ + ] page accessed quesB 2019-04-13 07:55:57am
+[ + ] page accessed quesB 2019-04-18 03:56:24pm
 executing quesObject() with qId = 5
 obtaining testcases for qId = 5
 building the ques object (temp1)... 
@@ -885,6 +295,11 @@ Array
     [id] => 5
     [desc] => Write a function called sub() that takes two integers and prints their difference.
     [topic] => Subtraction
+    [cons] => Array
+        (
+            [0] => print
+        )
+
     [diff] => 1
 )
 
@@ -894,6 +309,11 @@ Array
     [id] => 5
     [desc] => Write a function called sub() that takes two integers and prints their difference.
     [topic] => Subtraction
+    [cons] => Array
+        (
+            [0] => print
+        )
+
     [diff] => 1
     [tests] => Array
         (
@@ -920,6 +340,11 @@ Array
                     [id] => 4
                     [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
                     [topic] => Math Factorial
+                    [cons] => Array
+                        (
+                            [0] => while
+                        )
+
                     [diff] => 4
                     [tests] => Array
                         (
@@ -936,6 +361,12 @@ Array
                     [id] => 2
                     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
                     [topic] => Printing string
+                    [cons] => Array
+                        (
+                            [0] => for
+                            [1] => print
+                        )
+
                     [diff] => 3
                     [tests] => Array
                         (
@@ -952,6 +383,11 @@ Array
                     [id] => 5
                     [desc] => Write a function called sub() that takes two integers and prints their difference.
                     [topic] => Subtraction
+                    [cons] => Array
+                        (
+                            [0] => print
+                        )
+
                     [diff] => 1
                     [tests] => Array
                         (
@@ -1197,6 +633,11 @@ Array
                             [id] => 4
                             [desc] => Write a function called factorial() which takes one integer parameter n, and returns n!. 
                             [topic] => Math Factorial
+                            [cons] => Array
+                                (
+                                    [0] => while
+                                )
+
                             [diff] => 4
                             [tests] => Array
                                 (
@@ -1213,6 +654,12 @@ Array
                             [id] => 2
                             [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
                             [topic] => Printing string
+                            [cons] => Array
+                                (
+                                    [0] => for
+                                    [1] => print
+                                )
+
                             [diff] => 3
                             [tests] => Array
                                 (
@@ -1229,6 +676,11 @@ Array
                             [id] => 5
                             [desc] => Write a function called sub() that takes two integers and prints their difference.
                             [topic] => Subtraction
+                            [cons] => Array
+                                (
+                                    [0] => print
+                                )
+
                             [diff] => 1
                             [tests] => Array
                                 (
@@ -1331,7 +783,7 @@ Array
 
 )
 pushing the attempt object into array of attempts
-[ + ] page accessed testB 2019-04-13 07:55:57am
+[ + ] page accessed testB 2019-04-18 03:56:24pm
 executing testObject() with testId = 2
 SELECT * FROM Test WHERE Id = '2' 
 test being formed (temp1)...
@@ -1352,7 +804,7 @@ Array
 )
 
 building question object for test...
-[ + ] page accessed quesB 2019-04-13 07:55:57am
+[ + ] page accessed quesB 2019-04-18 03:56:24pm
 executing quesObject() with qId = 1
 obtaining testcases for qId = 1
 building the ques object (temp1)... 
@@ -1361,6 +813,10 @@ Array
     [id] => 1
     [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
     [topic] => Operators
+    [cons] => Array
+        (
+        )
+
     [diff] => 2
 )
 
@@ -1370,6 +826,10 @@ Array
     [id] => 1
     [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
     [topic] => Operators
+    [cons] => Array
+        (
+        )
+
     [diff] => 2
     [tests] => Array
         (
@@ -1387,7 +847,7 @@ question object for test built!
 
 obtaining points from each question id: 1 
 pts for this question : 120 
-[ + ] page accessed quesB 2019-04-13 07:55:57am
+[ + ] page accessed quesB 2019-04-18 03:56:24pm
 executing quesObject() with qId = 2
 obtaining testcases for qId = 2
 building the ques object (temp1)... 
@@ -1396,6 +856,12 @@ Array
     [id] => 2
     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
     [topic] => Printing string
+    [cons] => Array
+        (
+            [0] => for
+            [1] => print
+        )
+
     [diff] => 3
 )
 
@@ -1405,6 +871,12 @@ Array
     [id] => 2
     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
     [topic] => Printing string
+    [cons] => Array
+        (
+            [0] => for
+            [1] => print
+        )
+
     [diff] => 3
     [tests] => Array
         (
@@ -1433,6 +905,10 @@ Array
                     [id] => 1
                     [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
                     [topic] => Operators
+                    [cons] => Array
+                        (
+                        )
+
                     [diff] => 2
                     [tests] => Array
                         (
@@ -1452,6 +928,12 @@ Array
                     [id] => 2
                     [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
                     [topic] => Printing string
+                    [cons] => Array
+                        (
+                            [0] => for
+                            [1] => print
+                        )
+
                     [diff] => 3
                     [tests] => Array
                         (
@@ -1634,6 +1116,10 @@ Array
                             [id] => 1
                             [desc] => Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string "error".
                             [topic] => Operators
+                            [cons] => Array
+                                (
+                                )
+
                             [diff] => 2
                             [tests] => Array
                                 (
@@ -1653,6 +1139,12 @@ Array
                             [id] => 2
                             [desc] => Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.
                             [topic] => Printing string
+                            [cons] => Array
+                                (
+                                    [0] => for
+                                    [1] => print
+                                )
+
                             [diff] => 3
                             [tests] => Array
                                 (
@@ -1732,4 +1224,39 @@ Array
 )
 pushing the attempt object into array of attempts
 executing getAttempt()...output:
-{"type":"getA","error":0,"attempts":[{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","diff":"1","tests":["sub(3,4)=\"-1\"","sub(4,3)=\"1\""]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["20","32","5"],"feedback":[["g5p missing colon [:] in user answer","n0p expecting function [factorial] in answer found!","g20p called [factorial(2)], expected: [2], got user answer [2]","g20p called [factorial(5)], expected: [120], got user answer [120]","g20p called [factorial(3)], expected: [6], got user answer [6]","g20p called [factorial(1)], expected: [1], got user answer [1]","n0p user program succesfully executed. ","b5p constraint [while]  was not found."],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b10p constraint [for]  was not found.","b8p constraint [print]  was not found."],["b1.25p missing colon [:] in user answer","n0p expecting function [sub] in answer found!","b19.2p user program failed to execute. ","g20p constraint [print] was found."]],"remarks":["1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon."]},{"test":{"id":"2","desc":"Vector Pioneer 2","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=\"error\"","operation('hi',3,3)=\"error\""]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]}],"pts":["120","120"]},"answers":["def opernoob(op, a, b):\n    if (op == '+'):\n       return a+b\n    if (op == '-'):\n       return a-b\n    if (op == '*'):\n       return a*b\n    if (op == '\/'):\n       return a\/b\n    if (op == '%'):\n       return a%b\n    if (op == '?'):\n       return a?b ","def strMult(s, n):\n    return s * n"],"grades":["23","77"],"feedback":[["g5p missing colon [:] in user answer","b6p expecting function name [operation] in answer was not found!","b91.2p user program failed to execute. "],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b24p constraint [for]  was not found.","b19.2p constraint [print]  was not found."]],"remarks":["",""]}]}
+{"type":"getA","error":0,"attempts":[{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=\"-1\"","sub(4,3)=\"1\""]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["20","32","5"],"feedback":[["g5p missing colon [:] in user answer","n0p expecting function [factorial] in answer found!","g20p called [factorial(2)], expected: [2], got user answer [2]","g20p called [factorial(5)], expected: [120], got user answer [120]","g20p called [factorial(3)], expected: [6], got user answer [6]","g20p called [factorial(1)], expected: [1], got user answer [1]","n0p user program succesfully executed. ","b5p constraint [while]  was not found."],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b10p constraint [for]  was not found.","b8p constraint [print]  was not found."],["b1.25p missing colon [:] in user answer","n0p expecting function [sub] in answer found!","b19.2p user program failed to execute. ","g20p constraint [print] was found."]],"remarks":["1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon.","1 should lose points for not using a while loop. \n\n2 should lose points for not using a for loop and for not printing the answer. \n\n3 should lose points for wrong name and for missing colon."]},{"test":{"id":"2","desc":"Vector Pioneer 2","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=\"error\"","operation('hi',3,3)=\"error\""]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]}],"pts":["120","120"]},"answers":["def opernoob(op, a, b):\n    if (op == '+'):\n       return a+b\n    if (op == '-'):\n       return a-b\n    if (op == '*'):\n       return a*b\n    if (op == '\/'):\n       return a\/b\n    if (op == '%'):\n       return a%b\n    if (op == '?'):\n       return a?b ","def strMult(s, n):\n    return s * n"],"grades":["23","77"],"feedback":[["g5p missing colon [:] in user answer","b6p expecting function name [operation] in answer was not found!","b91.2p user program failed to execute. "],["g5p missing colon [:] in user answer","n0p expecting function [strMult] in answer found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","g20p called [strMult(\"up\", 4)], expected: [upupupup], got user answer [upupupup]","g20p called [strMult(\"hey\", 3)], expected: [heyheyhey], got user answer [heyheyhey]","g20p called [strMult(\"aba\", 2)], expected: [abaaba], got user answer [abaaba]","n0p user program succesfully executed. ","b24p constraint [for]  was not found.","b19.2p constraint [print]  was not found."]],"remarks":["",""]}]}[+] addA page accessed 2019-04-18 04:46:20pm
++ page received data. processing the data below:
++ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 44929
+addA decoder is empty! 
++  page accessed by getCons 2019-04-18 04:50:42pm
++ received data : 
+
++ getCons() in backend  was succesful. data: 
+[]
+[ + ] page accessed getA 2019-04-18 04:50:42pm
++ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 45258
+decoder at backend of getA received empty or null
++ called the function setMod(), output: 
+{"type":"modA","error":"mod A response is being developed."}+  page accessed by getCons 2019-04-18 05:36:31pm
++ received data : 
+
++ getCons() in backend  was succesful. data: 
+[]
+[ + ] page accessed getA 2019-04-18 05:36:31pm
++ target file size of : /afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt = 45667
+decoder at backend of getA received empty or null
++ called the function setMod(), output: 
+{"type":"modA","error":"mod A response is being developed."}+ called the function setMod(), output: 
+{"type":"modA","error":"mod A response is being developed."}+  page accessed by getCons 2019-04-18 05:46:45pm
++ received data : 
+
++ getCons() in backend  was succesful. data: 
+[]
++ called the function setMod(), output: 
+{"type":"modA","error":"mod A response is being developed."}+  page accessed by getCons 2019-04-18 05:59:47pm
++ received data : 
+
++ getCons() in backend  was succesful. data: 
+[]
++ called the function setMod(), output: 
+{"type":"modA","error":"mod A response is being developed."}

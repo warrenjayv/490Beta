@@ -9,7 +9,6 @@ include 'dblogin_interface.php';
 $target = targetIs('getA'); 
 $response = file_get_contents('php://input'); 
 $decoder = json_decode($response, true); 
-//testpoint:   $decoder = array('ids' => array('10'));
 $write = "[ + ] page accessed getA " . date("Y-m-d h:i:sa") . "\n"; 
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
@@ -19,7 +18,7 @@ if (filesize($target) >= 52428800) {
 }
 
 /*testpoint*/
-/* $decoder = array("ids" => array("10"));*/
+// $decoder = array("ids" => array("1", "2"));
 
 if (! empty($decoder)) {
 	$write = "data received...\n"; 
@@ -124,8 +123,9 @@ function ansObject($conn, $id) {
 				$afeedbacks = getFeedbacks($conn, $id, $row['questionId']); 
 				array_push($feedbacks, $afeedbacks); 
 				array_push($comments, $row['remarks']); 
+        $rel = $row['rel']; 
 			}//while row mysqli 
-			$ansArray = array('answers' => $userAnswers, 'grades' => $grades, 'feedback' => $feedbacks, 'remarks' => $comments); 
+			$ansArray = array('answers' => $userAnswers, 'grades' => $grades, 'feedback' => $feedbacks, 'remarks' => $comments, 'rel' => $rel); 
 
 			$write = "ansObject() formed the ansArray\n"; 
 			$write .= print_r($ansArray, true) . "\n"; 

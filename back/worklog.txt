@@ -1,0 +1,8 @@
+
+Thu Apr 18 16:16:26 EDT 2019
+
+
+   [+] addA should be changed; instead of updating in the database, simply 
+       add new fields with a new attemptId for a given testId. this will have rel = 0. 
+
+   [+] getA should return rel so that front knows whether it is released or not. 

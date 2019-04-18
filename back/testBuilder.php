@@ -21,16 +21,16 @@ if ($testObj = testObject($conn, $id)){
 
 function testObject($conn, $id) { 
 
-    $arrayofQues = array(); //array of questions 
+  $arrayofQues = array(); //array of questions 
 	$ptsArray = array(); 
    
     $target = targetIs('testB'); 
 
     $write = "[ + ] page accessed testB " . date("Y-m-d h:i:sa") . "\n"; 
     autolog($write, $target);
-	if (filesize($target) >= 100000) {
+	if (filesize($target) >= 50000000) {
 		autoclear($target); 
-		$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+		$write = "+ the log reached 50 mb; it has been cleared \n"; autolog($write, $target); 
 	}
 
 

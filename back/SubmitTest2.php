@@ -20,7 +20,7 @@ $write = "[+] addA page accessed " . date("Y-m-d h:i:sa") . "\n";
 $write .= "+ page received data. processing the data below:\n";
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
-if (filesize($target) >= 100000) {
+if (filesize($target) >= 10000000) {
 	autoclear($target); 
 	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
 }
@@ -179,7 +179,7 @@ function attemptObj($conn, $test, $answers, $grades, $comment, $feedback, $remar
 	$write .= "+ answers: " . print_r($answers, true) . "\n"; 
 	autolog($write, $target); 
 
-	$package = array("test" => $test, "answers" => $answers, "grades" => $grades, "comment" => $comment, "feedback" => $feedback, "remarks" => $remarks); 
+	$package = array("test" => $test, "answers" => $answers, "grades" => $grades, "comment" => $comment, "feedback" => $feedback, "remarks" => $remarks, "rel" => '0'); 
 	return $package; 
 }//attemptObj 
 

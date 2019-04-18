@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set("America/New_York"); 
-include 'dblogin_interface.php';
-include 'autolog.php'; 
-include 'targets.php'; 
+   include 'dblogin_interface.php';
+// include 'autolog.php'; 
+// include 'targets.php'; 
 
 $target = targetIs('auto'); 
 
@@ -18,11 +18,11 @@ autolog($write, $target);
 if (! $feedback = getCons($conn, $decoder['qId'])) {
 	$error = "backend getCons failed. pls check logs."; 
 	$write = $error . " " . $feedback .  "\n"; autolog($write, $target); 	
-	echo $feedback ; 
+	return $feedback ; 
 } else {
 	$write = "+ getCons() in backend  was succesful. data: \n"; 
 	$write .= print_r($feedback, true) . "\n"; autolog($write, $target); 
-	echo $feedback; 
+	return  $feedback; 
 }
 
 function getCons($conn, $qId) {
@@ -39,8 +39,7 @@ function getCons($conn, $qId) {
        	array_push($cons, $row['constraintext']); 
      }//while row mysqli fetch
     
-    $conson = array('cons' => $cons); 
-    return json_encode($conson); 
+    return json_encode($cons); 
 }//getCons() 
 
 ?>

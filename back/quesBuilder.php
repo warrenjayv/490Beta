@@ -3,6 +3,7 @@
 date_default_timezone_set("America/New_York"); 
 // include 'getQuestion.php'; 
 // include 'dblogin_interface.php'; 
+include 'getCons.php'; 
 
 function quesObject($conn, $qId) {
 	$arrayCases = array(); 
@@ -15,7 +16,6 @@ function quesObject($conn, $qId) {
 		autoclear($tgt); 
 		$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $tgt); 
 	}
-
 
 	$write = "executing quesObject() with qId = " . $qId . "\n"; 
 	autolog($write, $tgt); 
@@ -30,12 +30,13 @@ function quesObject($conn, $qId) {
 	else { 
 		$write = "obtaining testcases for qId = " . $qId . "\n"; 
 		autolog($write, $tgt); 
-               // $cons = getCons($conn, $qId); 
+       $cons = getCons($conn, $qId); 
+       $cons = json_decode($cons); 
 		while($row1 = mysqli_fetch_assoc($result1)) {
 			$desc = $row1['question']; 
 			$topic = $row1['category']; 
 			$diff = $row1['difficulty']; 
-			$temp1 = array('id' => $qId, 'desc' => $desc, 'topic' => $topic, 'diff' => $diff);
+			$temp1 = array('id' => $qId, 'desc' => $desc, 'topic' => $topic, 'cons' => $cons, 'diff' => $diff);
 
 			$write = "building the ques object (temp1)... \n";
 			$write .= print_r($temp1, true) . "\n"; 

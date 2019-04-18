@@ -4,6 +4,7 @@ date_default_timezone_set("America/New_York");
 include 'dblogin_interface.php';
 include 'autolog.php'; 
 include 'targets.php'; 
+include 'getCons.php'; 
 
 //$target = '/afs/cad/u/w/b/wbv4/public_html/Middle/tracklogs/getT.txt'; 
 $target = targetIs('getT'); 
@@ -57,8 +58,8 @@ function getExam($conn, $decoder) {
 	    $sub = $row['sub'];
 	    $aTest = testObject($conn, $id, $x, $sub);
 	    array_push($arrayofTests, $aTest); 
-	 }                      
-      }
+	    }                      
+  }
 
       /*
       //var_dump($arrayofTests); echo "<br><br>"; 
@@ -122,22 +123,23 @@ function testObject($conn, $testId, $rel, $sub) {
    foreach($arrayofQIds as $q) {
       $sql2 = " SELECT * FROM Question WHERE Id = '$q' "; 
       if ( ! $result2 = $conn->query($sql2)) {
-	 $sqlerror2 = $conn->error;
-	 $error .= "sql1: error " . $sqlerror2 . " ";
-	 echo $error; 
-      } else {
-	 while($row2 = mysqli_fetch_assoc($result2)) {
-	    $Id = $row2['Id']; 
-	    $Desc = $row2['question'];
-	    $Topic = $row2['category'];
-	    $Diff = $row2['difficulty'];
+	       $sqlerror2 = $conn->error;
+	       $error .= "sql1: error " . $sqlerror2 . " ";
+	       echo $error; 
+      }  else {
+      $cons = getCons($conn, $q); 
+	    while($row2 = mysqli_fetch_assoc($result2)) {
+	     $Id = $row2['Id']; 
+	     $Desc = $row2['question'];
+	     $Topic = $row2['category'];
+	     $Diff = $row2['difficulty'];
 
-	    $temp1 = array('id' => $Id, 'desc' => $Desc, 'topic' => $Topic, 'diff' => $Diff); 
-	    array_push($arrayofQuestions, $temp1); 
-	    //var_dump($temp1); echo "<br><br>"; 
-	 }  
-      }
-   } 
+	       $temp1 = array('id' => $Id, 'desc' => $Desc, 'topic' => $Topic, 'cons' => $cons, 'diff' => $Diff); 
+	       array_push($arrayofQuestions, $temp1); 
+	       //var_dump($temp1); echo "<br><br>"; 
+	   }//while row fetch  
+     }//if result2 else
+   }//foreaech  q 
      $write = "check the contents of temp..\n"; 
      $write.= print_r($temp, true) . "\n"; autolog($write, $target); 
      $write = "check the contents of arrayofPts...\n"; 
