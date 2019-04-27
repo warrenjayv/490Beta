@@ -9,9 +9,9 @@ date_default_timezone_set("America/New_York");
 $write = "page access " . date("Y-m-d h:i:sa") . "\n";
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
-if (filesize($target) >= 100000) {
+if (filesize($target) >= 52428800) {
 	autoclear($target); 
-	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+	$write = "+ the log reached 50 mb; it has been cleared \n"; autolog($write, $target); 
 }
 
 //lastupdate: 03/19/2019 8:13 PM

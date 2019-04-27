@@ -31,6 +31,9 @@ function targetIs($str) {
         if ($str == 'getQ') {
        	   return '/afs/cad/u/r/d/rd248/public_html/download/beta/back/log.txt'; 
         } 
+   if ($str == 'modA'){
+        return '/afs/cad/u/r/d/rd248/public_html/download/beta/back/modlog.txt'; 
+   }
 }
 
 /*

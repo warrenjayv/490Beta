@@ -18,7 +18,7 @@ if (filesize($target) >= 52428800) {
 }
 
 /*testpoint*/
-// $decoder = array("ids" => array("1", "2"));
+// $decoder = array("ids" => array("1"));
 
 if (! empty($decoder)) {
 	$write = "data received...\n"; 
@@ -26,7 +26,9 @@ if (! empty($decoder)) {
   
 	if ( ! $feedback = getAttempt($conn, $decoder)) {
 		$error = "backend getAttempt() failed. please check logs! ";
-		$write = $error . "\n"; autolog($write, $target); 	
+    $write = "+ feedback (output) :" . print_r($feedback, true) . "\n"; 
+		$write .= $error . "\n"; autolog($write, $target); 
+    autolog($write, $target); 
 	} else {
 		$write = "executing getAttempt()...output:\n"; 
 		$write .= print_r($feedback, true); autolog($write, $target); 
@@ -82,7 +84,7 @@ function getAttempt($conn, $decoder) {
 				return false; 
 			}
 	
-	$write =  "building the attempt object...\n";
+	$write =  "+ building the attempt object...\n";
 	$temp = array('test' => $testObj);
 //	$temp2 = array($ansObj); 
 	$temp = array_merge($temp, (array)$ansObj); 
@@ -90,12 +92,16 @@ function getAttempt($conn, $decoder) {
 	$write .= "pushing the attempt object into array of attempts\n";
 	autolog($write, $target); 
 	array_push($attemptArray, $temp); 
-
+  $write .= "the array of attempts is pushed into 'attemptArray':\n"; 
+  $write .= print_r($attemptArray, true) . "\n"; 
 	}//foreach ids as x 
 		
 	if ($error == null) { $error = 0; } 
 	$payload  = array('type' => 'getA', 'error' => $error, 'attempts' => $attemptArray); 
 	$package = json_encode($payload); 
+  $write .= "+ encoded the attemptArray into JSON:\n";
+  $write .= print_r($package, true); 
+  autolog($write, $target); 
 	return $package; 
 
 }//getAttempt(); 

@@ -12,7 +12,7 @@ $decoder    = json_decode($response, true);
 $write = "[ + ] page accessed getQ " . date("Y-m-d h:i:sa") . "\n"; 
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
-if (filesize($target) >= 100000) {
+if (filesize($target) >= 52428800) {
 	autoclear($target); 
 	$write = "+ log reached max; it is cleared \n"; autolog($write, $target); 
 }

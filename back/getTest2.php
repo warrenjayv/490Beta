@@ -14,9 +14,9 @@ $decoder    = json_decode($response, true);
 $write  = "[ + ]  page accessed getT " . date("Y-m-d h:i:sa") . "\n"; 
 $write .= "+ target file size of : " . $target . " = " . filesize($target) . "\n"; 
 autolog($write, $target); 
-if (filesize($target) >= 100000) {
+if (filesize($target) >= 52428800) {
 	autoclear($target); 
-	$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $target); 
+	$write = "+ the log reached 50 mb; it has been cleared \n"; autolog($write, $target); 
 }
 
 if (! empty($decoder)) {
@@ -128,6 +128,7 @@ function testObject($conn, $testId, $rel, $sub) {
 	       echo $error; 
       }  else {
       $cons = getCons($conn, $q); 
+      $cons = json_decode($cons, true); 
 	    while($row2 = mysqli_fetch_assoc($result2)) {
 	     $Id = $row2['Id']; 
 	     $Desc = $row2['question'];

@@ -1,0 +1,1703 @@
+
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newR] => you did perfectly but you straight up cheated.
+                )
+
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p colon [:] in user answer
+                    [index] => 0
+                )
+
+            [1] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+                    [index] => 2
+                )
+
+            [2] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+                    [index] => 3
+                )
+
+            [3] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+                    [index] => 4
+                )
+
+            [4] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p called [addThree(1,2,3)], expected: [6], got user answer [6]
+                    [index] => 5
+                )
+
+            [5] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g0p called [addThree(4,5,6)], expected: [15], got user answer [15]
+                    [index] => 6
+                )
+
+        )
+
+    [grades] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newG] => -55
+                )
+
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newR] => you did perfectly but you straight up cheated.
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ check arrayoftIds: Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'you did perfectly but you straight up cheated.' 
+                      WHERE QuestionStudentRelation.testId = '7' AND 
+                      QuestionStudentRelation.questionId = '3'
++ modA, update of remarks succesful; tId: 7 qId: 3 remark: you did perfectly but you straight up cheated.
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newG] => -55
+        )
+
+)
+
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds: Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET grade = '-55' 
+                        WHERE QuestionStudentRelation.testId = '7' AND
+                        QuestionStudentRelation.questionId = '3'
++ modA, update of grades succesful; tId: 7 qId: 3 grade: -55
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p colon [:] in user answer
+            [index] => 0
+        )
+
+    [1] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+            [index] => 2
+        )
+
+    [2] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+            [index] => 3
+        )
+
+    [3] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+            [index] => 4
+        )
+
+    [4] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p called [addThree(1,2,3)], expected: [6], got user answer [6]
+            [index] => 5
+        )
+
+    [5] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g0p called [addThree(4,5,6)], expected: [15], got user answer [15]
+            [index] => 6
+        )
+
+)
+
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p colon [:] in user answer' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '1'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p colon [:] in user answer
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '3'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '4'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '5'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p called [addThree(1,2,3)], expected: [6], got user answer [6]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '6'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p called [addThree(1,2,3)], expected: [6], got user answer [6]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g0p called [addThree(4,5,6)], expected: [15], got user answer [15]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '7'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g0p called [addThree(4,5,6)], expected: [15], got user answer [15]
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = '7'
++ modA, update of rel is succesful for tId: 7 qId: 3
+
++  called the function setMod(), output: 
+{"type":"modA","error":null,"attempt":{"test":{"id":"7","desc":"My Test","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","cons":[],"diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]}],"pts":["50"]},"answers":["def addThree(a, b, c):\n    return a + b + c"],"grades":["50"],"feedback":[["g0p colon [:] in user answer","n0p expecting function [addThree] in answer found!","g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]","g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]","g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]","g0p called [addThree(1,2,3)], expected: [6], got user answer [6]","g0p called [addThree(4,5,6)], expected: [15], got user answer [15]","n0p user program succesfully executed. "]],"remarks":["you did perfectly but you straight up cheated."],"rel":"1"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newR] => you did perfectly but you cheated; I gave you 0 for this test. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newR] => you did perfectly but you cheated; I gave you 0 for this test. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ check arrayoftIds: Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'you did perfectly but you cheated; I gave you 0 for this test. ' 
+                      WHERE QuestionStudentRelation.testId = '7' AND 
+                      QuestionStudentRelation.questionId = '3'
++ modA, update of remarks succesful; tId: 7 qId: 3 remark: you did perfectly but you cheated; I gave you 0 for this test. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '7'
++ modA, update of rel is succesful for tId: 7 qId: 3
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"7","desc":"My Test","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","cons":[],"diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]}],"pts":["50"]},"answers":["def addThree(a, b, c):\n    return a + b + c"],"grades":["50"],"feedback":[["g0p colon [:] in user answer","n0p expecting function [addThree] in answer found!","g0p called [addThree(100, 200, 300)], expected: [600], got user answer [600]","g0p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]","g0p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]","g0p called [addThree(1,2,3)], expected: [6], got user answer [6]","g0p called [addThree(4,5,6)], expected: [15], got user answer [15]","n0p user program succesfully executed. "]],"remarks":["you did perfectly but you cheated; I gave you 0 for this test. "],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p colon [:] in user answer
+                    [index] => 0
+                )
+
+            [1] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+                    [index] => 2
+                )
+
+            [2] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+                    [index] => 3
+                )
+
+            [3] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+                    [index] => 4
+                )
+
+            [4] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+                    [index] => 5
+                )
+
+            [5] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newF] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+                    [index] => 6
+                )
+
+        )
+
+    [grades] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newG] => 170
+                )
+
+        )
+
+)
+Array
+(
+)
+
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newG] => 170
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ check arrayoftIds: Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET grade = '170' 
+                        WHERE QuestionStudentRelation.testId = '7' AND
+                        QuestionStudentRelation.questionId = '3'
++ modA, update of grades succesful; tId: 7 qId: 3 grade: 170
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p colon [:] in user answer
+            [index] => 0
+        )
+
+    [1] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
+            [index] => 2
+        )
+
+    [2] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
+            [index] => 3
+        )
+
+    [3] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
+            [index] => 4
+        )
+
+    [4] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
+            [index] => 5
+        )
+
+    [5] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newF] => g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
+            [index] => 6
+        )
+
+)
+
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p colon [:] in user answer' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '1'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p colon [:] in user answer
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '3'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '4'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '5'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p called [addThree(1,2,3)], expected: [6], got user answer [6]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '6'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p called [addThree(1,2,3)], expected: [6], got user answer [6]
++ executing the buildarray for tIds
++ input: tId: 7 array: Array
+(
+    [0] => 7
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g20p called [addThree(4,5,6)], expected: [15], got user answer [15]' WHERE
+            Feedback.testId = '7' AND Feedback.questionId = '3'
+            AND Feedback.arrayindex = '7'
++ modA, update of feedback succesful; tId: 7 qId: 3 new feedback: g20p called [addThree(4,5,6)], expected: [15], got user answer [15]
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = '7'
++ modA, update of rel is succesful for tId: 7 qId: 3
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA remarks object is empty. ","attempt":{"test":{"id":"7","desc":"My Test","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","cons":[],"diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]}],"pts":["50"]},"answers":["def addThree(a, b, c):\n    return a + b + c"],"grades":["50"],"feedback":[["g20p colon [:] in user answer","n0p expecting function [addThree] in answer found!","g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]","g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]","g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]","g20p called [addThree(1,2,3)], expected: [6], got user answer [6]","g20p called [addThree(4,5,6)], expected: [15], got user answer [15]","n0p user program succesfully executed. "]],"remarks":["you did perfectly but you cheated; I gave you 0 for this test. "],"rel":"1"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newF] => g30p called [operation('+',3,3)], expected: [6], got user answer [6]
+                    [index] => 2
+                )
+
+        )
+
+    [grades] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newG] => 31
+                )
+
+        )
+
+)
+Array
+(
+)
+
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newG] => 31
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET grade = '31' 
+                        WHERE QuestionStudentRelation.testId = '5' AND
+                        QuestionStudentRelation.questionId = '1'
++ modA, update of grades succesful; tId: 5 qId: 1 grade: 31
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newF] => g30p called [operation('+',3,3)], expected: [6], got user answer [6]
+            [index] => 2
+        )
+
+)
+
++ executing the buildarray for tIds
++ input: tId: 5 array: Array
+(
+    [0] => 5
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g30p called [operation(\'+\',3,3)], expected: [6], got user answer [6]' WHERE
+            Feedback.testId = '5' AND Feedback.questionId = '1'
+            AND Feedback.arrayindex = '3'
++ modA, update of feedback succesful; tId: 5 qId: 1 new feedback: g30p called [operation(\'+\',3,3)], expected: [6], got user answer [6]
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '5'
++ modA, update of rel is succesful for tId: 5 qId: 1
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA remarks object is empty. ","attempt":{"test":{"id":"5","desc":"Sample Quiz","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]}],"pts":["50","25","25"]},"answers":["def operation(op, a, b):\n    if op == '+':\n        return a+b\n    elif op == '-':\n        return a-b\n    elif op == '*':\n        return a*b\n","def stringMult(s, n):\n    print s*n","def factorial(n)\n    acc = 1\n    for i in range(1,n+1):\n        acc *= i\n    return acc"],"grades":["21","4","4"],"feedback":[["g5p colon [:] in user answer","n0p expecting function [operation] in answer found!","g30p called [operation('+',3,3)], expected: [6], got user answer [6]","b10p called [operation('\/',3,3)]  expected answer: [1], got user answer [1]","g20p called [operation('*',3,3)], expected: [9], got user answer [9]","b8p called [operation('%',3,3)]  expected answer: [], got user answer []","b6.4p called [operation('?',3,3)]  expected answer: [error], got user answer [error]","b5.2p called [operation('hi',3,3)]  expected answer: [error], got user answer [error]","n0p user program succesfully executed. "],["g5p colon [:] in user answer","b1.25p expecting function name [strMult] in answer was not found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","b4.8p called [strMult(\"up\", 4)]  expected answer: [upupupup], got user answer [upupupup]","b3.8p called [strMult(\"hey\", 3)]  expected answer: [heyheyhey], got user answer [heyheyhey]","b3p called [strMult(\"aba\", 2)]  expected answer: [abaaba], got user answer [abaaba]","b2.4p called []  expected answer: [], got user answer []","b2p called []  expected answer: [], got user answer []","b1.6p called []  expected answer: [], got user answer []","b1.2p called []  expected answer: [], got user answer []","n0p user program succesfully executed. ","b1p constraint [for]  was not found.","g20p constraint [print] was found."],["g5p colon [:] in user answer","n0p expecting function [factorial] in answer found!","b20p user program failed to execute. ","b1p constraint [while]  was not found."]],"remarks":["","",""],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+        )
+
+    [feedback] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newF] => g30p called [operation('*',3,3)], expected: [9], got user answer [9]
+                    [index] => 4
+                )
+
+        )
+
+    [grades] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newG] => 31
+                )
+
+        )
+
+)
+Array
+(
+)
+
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newG] => 31
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET grade = '31' 
+                        WHERE QuestionStudentRelation.testId = '5' AND
+                        QuestionStudentRelation.questionId = '1'
++ modA, update of grades succesful; tId: 5 qId: 1 grade: 31
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newF] => g30p called [operation('*',3,3)], expected: [9], got user answer [9]
+            [index] => 4
+        )
+
+)
+
++ executing the buildarray for tIds
++ input: tId: 5 array: Array
+(
+    [0] => 5
+)
+
++ check arrayoftIds:
+Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.Feedback SET feedback = 'g30p called [operation(\'*\',3,3)], expected: [9], got user answer [9]' WHERE
+            Feedback.testId = '5' AND Feedback.questionId = '1'
+            AND Feedback.arrayindex = '5'
++ modA, update of feedback succesful; tId: 5 qId: 1 new feedback: g30p called [operation(\'*\',3,3)], expected: [9], got user answer [9]
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '5'
++ modA, update of rel is succesful for tId: 5 qId: 1
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA remarks object is empty. ","attempt":{"test":{"id":"5","desc":"Sample Quiz","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]}],"pts":["50","25","25"]},"answers":["def operation(op, a, b):\n    if op == '+':\n        return a+b\n    elif op == '-':\n        return a-b\n    elif op == '*':\n        return a*b\n","def stringMult(s, n):\n    print s*n","def factorial(n)\n    acc = 1\n    for i in range(1,n+1):\n        acc *= i\n    return acc"],"grades":["21","4","4"],"feedback":[["g5p colon [:] in user answer","n0p expecting function [operation] in answer found!","g30p called [operation('+',3,3)], expected: [6], got user answer [6]","b10p called [operation('\/',3,3)]  expected answer: [1], got user answer [1]","g30p called [operation('*',3,3)], expected: [9], got user answer [9]","b8p called [operation('%',3,3)]  expected answer: [], got user answer []","b6.4p called [operation('?',3,3)]  expected answer: [error], got user answer [error]","b5.2p called [operation('hi',3,3)]  expected answer: [error], got user answer [error]","n0p user program succesfully executed. "],["g5p colon [:] in user answer","b1.25p expecting function name [strMult] in answer was not found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","b4.8p called [strMult(\"up\", 4)]  expected answer: [upupupup], got user answer [upupupup]","b3.8p called [strMult(\"hey\", 3)]  expected answer: [heyheyhey], got user answer [heyheyhey]","b3p called [strMult(\"aba\", 2)]  expected answer: [abaaba], got user answer [abaaba]","b2.4p called []  expected answer: [], got user answer []","b2p called []  expected answer: [], got user answer []","b1.6p called []  expected answer: [], got user answer []","b1.2p called []  expected answer: [], got user answer []","n0p user program succesfully executed. ","b1p constraint [for]  was not found.","g20p constraint [print] was found."],["g5p colon [:] in user answer","n0p expecting function [factorial] in answer found!","b20p user program failed to execute. ","b1p constraint [while]  was not found."]],"remarks":["","",""],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 6
+                    [qId] => 3
+                    [newR] => New Remark for ya
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 6
+            [qId] => 3
+            [newR] => New Remark for ya
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .6 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .6 to the array
++ check arrayoftIds: Array
+(
+    [0] => 6
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'New Remark for ya' 
+                      WHERE QuestionStudentRelation.testId = '6' AND 
+                      QuestionStudentRelation.questionId = '3'
++ modA, update of remarks succesful; tId: 6 qId: 3 remark: New Remark for ya
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = '6'
++ modA, update of rel is succesful for tId: 6 qId: 3
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"6","desc":"Test Exam 2","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","cons":[],"diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]},{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"7","desc":"Descriptionnnss","topic":"TipTop","cons":["for","while"],"diff":"2","tests":["a()=d","a()=d"]}],"pts":["25","25","50"]},"answers":["def addThree(a, b, c):\n    return a + b + c","def operation(op, a, b):\n    if op == '+':\n        return a + b","return 'a'"],"grades":["25","6","6"],"feedback":[["g5p colon [:] in user answer","n0p expecting function [addThree] in answer found!","g20p called [addThree(100, 200, 300)], expected: [600], got user answer [600]","g20p called [addThree(-7, 0, 19)], expected: [12], got user answer [12]","g20p called [addThree(-1,-1,-1)], expected: [-3], got user answer [-3]","g20p called [addThree(1,2,3)], expected: [6], got user answer [6]","g20p called [addThree(4,5,6)], expected: [15], got user answer [15]","n0p user program succesfully executed. "],["g5p colon [:] in user answer","n0p expecting function [operation] in answer found!","g20p called [operation('+',3,3)], expected: [6], got user answer [6]","b5p called [operation('-',3,3)]  expected answer: [], got user answer []","b4p called [operation('\/',3,3)]  expected answer: [1], got user answer [1]","b3.2p called [operation('*',3,3)]  expected answer: [9], got user answer [9]","b2.6p called [operation('%',3,3)]  expected answer: [], got user answer []","b2p called [operation('?',3,3)]  expected answer: [error], got user answer [error]","b1.6p called [operation('hi',3,3)]  expected answer: [error], got user answer [error]","n0p user program succesfully executed. "],["b2.5p missing colon [:] in user answer","n0p expecting function [a] in answer found!","b38.4p user program failed to execute. ","b2p constraint [for]  was not found.","b1.6p constraint [while]  was not found."]],"remarks":["New Remark for ya","",""],"rel":"1"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = ''
++ modA, update of rel is succesful for tId:  qId: 
++ arrayoftIds were empty. 
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA remarks object is empty. modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"0","ques":[],"pts":[]},"answers":[],"grades":[],"feedback":[],"remarks":[],"rel":null}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = ''
++ modA, update of rel is succesful for tId:  qId: 
++ arrayoftIds were empty. 
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA remarks object is empty. modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"0","ques":[],"pts":[]},"answers":[],"grades":[],"feedback":[],"remarks":[],"rel":null}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newR] => Dun, dun, dun
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newR] => Dun, dun, dun
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'Dun, dun, dun' 
+                      WHERE QuestionStudentRelation.testId = '5' AND 
+                      QuestionStudentRelation.questionId = '1'
++ modA, update of remarks succesful; tId: 5 qId: 1 remark: Dun, dun, dun
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '5'
++ modA, update of rel is succesful for tId: 5 qId: 1
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"5","desc":"Sample Quiz","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]}],"pts":["50","25","25"]},"answers":["def operation(op, a, b):\n    if op == '+':\n        return a+b\n    elif op == '-':\n        return a-b\n    elif op == '*':\n        return a*b\n","def stringMult(s, n):\n    print s*n","def factorial(n)\n    acc = 1\n    for i in range(1,n+1):\n        acc *= i\n    return acc"],"grades":["21","4","4"],"feedback":[["g5p colon [:] in user answer","n0p expecting function [operation] in answer found!","g30p called [operation('+',3,3)], expected: [6], got user answer [6]","b10p called [operation('\/',3,3)]  expected answer: [1], got user answer [1]","g30p called [operation('*',3,3)], expected: [9], got user answer [9]","b8p called [operation('%',3,3)]  expected answer: [], got user answer []","b6.4p called [operation('?',3,3)]  expected answer: [error], got user answer [error]","b5.2p called [operation('hi',3,3)]  expected answer: [error], got user answer [error]","n0p user program succesfully executed. "],["g5p colon [:] in user answer","b1.25p expecting function name [strMult] in answer was not found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","b4.8p called [strMult(\"up\", 4)]  expected answer: [upupupup], got user answer [upupupup]","b3.8p called [strMult(\"hey\", 3)]  expected answer: [heyheyhey], got user answer [heyheyhey]","b3p called [strMult(\"aba\", 2)]  expected answer: [abaaba], got user answer [abaaba]","b2.4p called []  expected answer: [], got user answer []","b2p called []  expected answer: [], got user answer []","b1.6p called []  expected answer: [], got user answer []","b1.2p called []  expected answer: [], got user answer []","n0p user program succesfully executed. ","b1p constraint [for]  was not found.","g20p constraint [print] was found."],["g5p colon [:] in user answer","n0p expecting function [factorial] in answer found!","b20p user program failed to execute. ","b1p constraint [while]  was not found."]],"remarks":["Dun, dun, dun","",""],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 1
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newR] => Dun, dun, dun
+                )
+
+            [1] => Array
+                (
+                    [tId] => 5
+                    [qId] => 2
+                    [newR] => Uh, oh
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newR] => Dun, dun, dun
+        )
+
+    [1] => Array
+        (
+            [tId] => 5
+            [qId] => 2
+            [newR] => Uh, oh
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'Dun, dun, dun' 
+                      WHERE QuestionStudentRelation.testId = '5' AND 
+                      QuestionStudentRelation.questionId = '1'
++ modA, update of remarks succesful; tId: 5 qId: 1 remark: Dun, dun, dun
++ executing the buildarray for tIds
++ input: tId: 5 array: Array
+(
+    [0] => 5
+)
+
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'Uh, oh' 
+                      WHERE QuestionStudentRelation.testId = '5' AND 
+                      QuestionStudentRelation.questionId = '2'
++ modA, update of remarks succesful; tId: 5 qId: 2 remark: Uh, oh
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 1
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '1' 
+               WHERE QuestionStudentRelation.testId = '5'
++ modA, update of rel is succesful for tId: 5 qId: 2
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"5","desc":"Sample Quiz","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]}],"pts":["50","25","25"]},"answers":["def operation(op, a, b):\n    if op == '+':\n        return a+b\n    elif op == '-':\n        return a-b\n    elif op == '*':\n        return a*b\n","def stringMult(s, n):\n    print s*n","def factorial(n)\n    acc = 1\n    for i in range(1,n+1):\n        acc *= i\n    return acc"],"grades":["21","4","4"],"feedback":[["g5p colon [:] in user answer","n0p expecting function [operation] in answer found!","g30p called [operation('+',3,3)], expected: [6], got user answer [6]","b10p called [operation('\/',3,3)]  expected answer: [1], got user answer [1]","g30p called [operation('*',3,3)], expected: [9], got user answer [9]","b8p called [operation('%',3,3)]  expected answer: [], got user answer []","b6.4p called [operation('?',3,3)]  expected answer: [error], got user answer [error]","b5.2p called [operation('hi',3,3)]  expected answer: [error], got user answer [error]","n0p user program succesfully executed. "],["g5p colon [:] in user answer","b1.25p expecting function name [strMult] in answer was not found!","g20p called [strMult(\"hello\",1)], expected: [hello], got user answer [hello]","b4.8p called [strMult(\"up\", 4)]  expected answer: [upupupup], got user answer [upupupup]","b3.8p called [strMult(\"hey\", 3)]  expected answer: [heyheyhey], got user answer [heyheyhey]","b3p called [strMult(\"aba\", 2)]  expected answer: [abaaba], got user answer [abaaba]","b2.4p called []  expected answer: [], got user answer []","b2p called []  expected answer: [], got user answer []","b1.6p called []  expected answer: [], got user answer []","b1.2p called []  expected answer: [], got user answer []","n0p user program succesfully executed. ","b1p constraint [for]  was not found.","g20p constraint [print] was found."],["g5p colon [:] in user answer","n0p expecting function [factorial] in answer found!","b20p user program failed to execute. ","b1p constraint [while]  was not found."]],"remarks":["Dun, dun, dun","Uh, oh",""],"rel":"1"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 1
+                    [qId] => 5
+                    [newR] => subtract is wrong but it marked it right fix it
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 1
+            [qId] => 5
+            [newR] => subtract is wrong but it marked it right fix it
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'subtract is wrong but it marked it right fix it' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '5'
++ modA, update of remarks succesful; tId: 1 qId: 5 remark: subtract is wrong but it marked it right fix it
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '1'
++ modA, update of rel is succesful for tId: 1 qId: 5
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=-1","sub(4,3)=1"]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["22","44","4"],"feedback":[["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","g5p python called factorial(2), expected: 2, got user answer [2]","g5p python called factorial(5), expected: 120, got user answer [120]","g5p python called factorial(3), expected: 6, got user answer [6]","g5p python called factorial(1), expected: 1, got user answer [1]","n0p user program succesfully executed. "],["b3p constraint [for]  was not found.","b3p constraint [print]  was not found.","g3p colon [:] in user answer","g3p expecting function: strMult, function found!","g10p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g10p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g10p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g10p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["g3p constraint [print] was found.","b2p missing colon [:] in user answer","g2p expecting function: sub, function found!","b19p user program failed to execute. "]],"remarks":["","","subtract is wrong but it marked it right fix it"],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 1
+                    [qId] => 2
+                    [newR] => the total here is 52, where did the 2 points come from?
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 1
+            [qId] => 2
+            [newR] => the total here is 52, where did the 2 points come from?
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'the total here is 52, where did the 2 points come from?' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '2'
++ modA, update of remarks succesful; tId: 1 qId: 2 remark: the total here is 52, where did the 2 points come from?
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '1'
++ modA, update of rel is succesful for tId: 1 qId: 2
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=-1","sub(4,3)=1"]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["22","44","4"],"feedback":[["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","g5p python called factorial(2), expected: 2, got user answer [2]","g5p python called factorial(5), expected: 120, got user answer [120]","g5p python called factorial(3), expected: 6, got user answer [6]","g5p python called factorial(1), expected: 1, got user answer [1]","n0p user program succesfully executed. "],["b3p constraint [for]  was not found.","b3p constraint [print]  was not found.","g3p colon [:] in user answer","g3p expecting function: strMult, function found!","g10p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g10p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g10p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g10p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["g3p constraint [print] was found.","b2p missing colon [:] in user answer","g2p expecting function: sub, function found!","b19p user program failed to execute. "]],"remarks":["","the total here is 52, where did the 2 points come from?","subtract is wrong but it marked it right fix it"],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 1
+                    [qId] => 4
+                    [newR] => this graded perfectly
+                )
+
+            [1] => Array
+                (
+                    [tId] => 1
+                    [qId] => 2
+                    [newR] => the total here is 52, where did the 2 points come from?
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 1
+            [qId] => 4
+            [newR] => this graded perfectly
+        )
+
+    [1] => Array
+        (
+            [tId] => 1
+            [qId] => 2
+            [newR] => the total here is 52, where did the 2 points come from?
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'this graded perfectly' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '4'
++ modA, update of remarks succesful; tId: 1 qId: 4 remark: this graded perfectly
++ executing the buildarray for tIds
++ input: tId: 1 array: Array
+(
+    [0] => 1
+)
+
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'the total here is 52, where did the 2 points come from?' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '2'
++ modA, update of remarks succesful; tId: 1 qId: 2 remark: the total here is 52, where did the 2 points come from?
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '1'
++ modA, update of rel is succesful for tId: 1 qId: 2
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=-1","sub(4,3)=1"]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["22","44","4"],"feedback":[["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","g5p python called factorial(2), expected: 2, got user answer [2]","g5p python called factorial(5), expected: 120, got user answer [120]","g5p python called factorial(3), expected: 6, got user answer [6]","g5p python called factorial(1), expected: 1, got user answer [1]","n0p user program succesfully executed. "],["b3p constraint [for]  was not found.","b3p constraint [print]  was not found.","g3p colon [:] in user answer","g3p expecting function: strMult, function found!","g10p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g10p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g10p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g10p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["g3p constraint [print] was found.","b2p missing colon [:] in user answer","g2p expecting function: sub, function found!","b19p user program failed to execute. "]],"remarks":["this graded perfectly","the total here is 52, where did the 2 points come from?","subtract is wrong but it marked it right fix it"],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 1
+                    [qId] => 2
+                    [newR] => the total here is misleading, if you count it all, it is 52. 
+
+in fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 1
+            [qId] => 2
+            [newR] => the total here is misleading, if you count it all, it is 52. 
+
+in fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'the total here is misleading, if you count it all, it is 52. 
+
+in fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. ' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '2'
++ modA, update of remarks succesful; tId: 1 qId: 2 remark: the total here is misleading, if you count it all, it is 52. 
+
+in fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '1'
++ modA, update of rel is succesful for tId: 1 qId: 2
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=-1","sub(4,3)=1"]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["22","44","4"],"feedback":[["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","g5p python called factorial(2), expected: 2, got user answer [2]","g5p python called factorial(5), expected: 120, got user answer [120]","g5p python called factorial(3), expected: 6, got user answer [6]","g5p python called factorial(1), expected: 1, got user answer [1]","n0p user program succesfully executed. "],["b3p constraint [for]  was not found.","b3p constraint [print]  was not found.","g3p colon [:] in user answer","g3p expecting function: strMult, function found!","g10p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g10p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g10p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g10p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["g3p constraint [print] was found.","b2p missing colon [:] in user answer","g2p expecting function: sub, function found!","b19p user program failed to execute. "]],"remarks":["this graded perfectly","the total here is misleading, if you count it all, it is 52. \n\nin fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. ","subtract is wrong but it marked it right fix it"],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 1
+                    [qId] => 5
+                    [newR] => subtract is wrong but it marked right.
+
+I am fixing the function at the moment to ensure it detects this issue. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 1
+            [qId] => 5
+            [newR] => subtract is wrong but it marked right.
+
+I am fixing the function at the moment to ensure it detects this issue. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .1 to the array
++ check arrayoftIds: Array
+(
+    [0] => 1
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'subtract is wrong but it marked right.
+
+I am fixing the function at the moment to ensure it detects this issue. ' 
+                      WHERE QuestionStudentRelation.testId = '1' AND 
+                      QuestionStudentRelation.questionId = '5'
++ modA, update of remarks succesful; tId: 1 qId: 5 remark: subtract is wrong but it marked right.
+
+I am fixing the function at the moment to ensure it detects this issue. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '1'
++ modA, update of rel is succesful for tId: 1 qId: 5
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"1","desc":"Quiz One","rel":"1","sub":"1","ques":[{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"5","desc":"Write a function called sub() that takes two integers and prints their difference.","topic":"Subtraction","cons":["print"],"diff":"1","tests":["sub(3,4)=-1","sub(4,3)=1"]}],"pts":["25","50","25"]},"answers":["def factorial(n):\n    result = 1\n    for i in range(n):\n        if n == 0 or n == 1:\n            break;\n        else:\n            result *= n\n            n -= 1\n    return result","def strMult(s, n):\n    return s*n","def subtract(a,b)\n    print a - b"],"grades":["22","44","4"],"feedback":[["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","g5p python called factorial(2), expected: 2, got user answer [2]","g5p python called factorial(5), expected: 120, got user answer [120]","g5p python called factorial(3), expected: 6, got user answer [6]","g5p python called factorial(1), expected: 1, got user answer [1]","n0p user program succesfully executed. "],["b3p constraint [for]  was not found.","b3p constraint [print]  was not found.","g3p colon [:] in user answer","g3p expecting function: strMult, function found!","g10p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g10p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g10p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g10p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["g3p constraint [print] was found.","b2p missing colon [:] in user answer","g2p expecting function: sub, function found!","b19p user program failed to execute. "]],"remarks":["this graded perfectly","the total here is misleading, if you count it all, it is 52. \n\nin fact, constraint, each one was 2.5 pts each, but it is ceiled to 3. ","subtract is wrong but it marked right.\n\nI am fixing the function at the moment to ensure it detects this issue. "],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 2
+                    [qId] => 1
+                    [newR] => here, the operator ? crashed the program, so it failed the answer and lost 87 points. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 2
+            [qId] => 1
+            [newR] => here, the operator ? crashed the program, so it failed the answer and lost 87 points. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .2 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .2 to the array
++ check arrayoftIds: Array
+(
+    [0] => 2
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'here, the operator ? crashed the program, so it failed the answer and lost 87 points. ' 
+                      WHERE QuestionStudentRelation.testId = '2' AND 
+                      QuestionStudentRelation.questionId = '1'
++ modA, update of remarks succesful; tId: 2 qId: 1 remark: here, the operator ? crashed the program, so it failed the answer and lost 87 points. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '2'
++ modA, update of rel is succesful for tId: 2 qId: 1
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"2","desc":"Vector Pioneer 2","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]}],"pts":["120","120"]},"answers":["def opernoob(op, a, b):\n    if (op == '+'):\n       return a+b\n    if (op == '-'):\n       return a-b\n    if (op == '*'):\n       return a*b\n    if (op == '\/'):\n       return a\/b\n    if (op == '%'):\n       return a%b\n    if (op == '?'):\n       return a?b ","def strMult(s, n):\n    return s * n"],"grades":["21","108"],"feedback":[["g12p colon [:] in user answer","b12p expecting function: operation, it was not found!","b87p user program failed to execute. "],["b6p constraint [for]  was not found.","b6p constraint [print]  was not found.","g6p colon [:] in user answer","g6p expecting function: strMult, function found!","g24p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g24p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g24p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g24p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "]],"remarks":["here, the operator ? crashed the program, so it failed the answer and lost 87 points. ",""],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 7
+                    [qId] => 3
+                    [newR] => please do not put " " quotation marks when putting the answer in the testcases as it will be marked wrong by the auto grader. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 7
+            [qId] => 3
+            [newR] => please do not put " " quotation marks when putting the answer in the testcases as it will be marked wrong by the auto grader. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .7 to the array
++ check arrayoftIds: Array
+(
+    [0] => 7
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'please do not put \" \" quotation marks when putting the answer in the testcases as it will be marked wrong by the auto grader. ' 
+                      WHERE QuestionStudentRelation.testId = '7' AND 
+                      QuestionStudentRelation.questionId = '3'
++ modA, update of remarks succesful; tId: 7 qId: 3 remark: please do not put \" \" quotation marks when putting the answer in the testcases as it will be marked wrong by the auto grader. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '7'
++ modA, update of rel is succesful for tId: 7 qId: 3
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"7","desc":"My Test","rel":"1","sub":"1","ques":[{"id":"3","desc":"Write a function called addThree() that takes three integer parameters and returns their sum.","topic":"Adding Integers","cons":[],"diff":"1","tests":["addThree(100, 200, 300)=600","addThree(-7, 0, 19)=12","addThree(-1,-1,-1)=-3","addThree(1,2,3)=6","addThree(4,5,6)=15","addThree(0,0,0)=0"]}],"pts":["50"]},"answers":["def addThree(a, b, c):\n    return a + b + c"],"grades":["50"],"feedback":[["g5p colon [:] in user answer","g5p expecting function: addThree, function found!","g7p python called addThree(100, 200, 300), expected: 600, got user answer [600]","g7p python called addThree(-7, 0, 19), expected: 12, got user answer [12]","g7p python called addThree(-1,-1,-1), expected: -3, got user answer [-3]","g7p python called addThree(1,2,3), expected: 6, got user answer [6]","g7p python called addThree(4,5,6), expected: 15, got user answer [15]","n0p user program succesfully executed. "]],"remarks":["please do not put \" \" quotation marks when putting the answer in the testcases as it will be marked wrong by the auto grader. "],"rel":"0"}}
+ + data received in modA.php
+Array
+(
+    [type] => modA
+    [rel] => 0
+    [remarks] => Array
+        (
+            [0] => Array
+                (
+                    [tId] => 5
+                    [qId] => 1
+                    [newR] => for the modulus operator, the python program output is an empty string. i will investigate this in a few. 
+                )
+
+        )
+
+    [feedback] => Array
+        (
+        )
+
+    [grades] => Array
+        (
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [tId] => 5
+            [qId] => 1
+            [newR] => for the modulus operator, the python program output is an empty string. i will investigate this in a few. 
+        )
+
+)
+
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ arrayoftIds is detected empty at buildarray()
++ appending .5 to the array
++ check arrayoftIds: Array
+(
+    [0] => 5
+)
+
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET remarks = 'for the modulus operator, the python program output is an empty string. i will investigate this in a few. ' 
+                      WHERE QuestionStudentRelation.testId = '5' AND 
+                      QuestionStudentRelation.questionId = '1'
++ modA, update of remarks succesful; tId: 5 qId: 1 remark: for the modulus operator, the python program output is an empty string. i will investigate this in a few. 
+Array
+(
+)
+
+Array
+(
+)
+
++ setMod() task FOXTROT, set rel settings to 0
++ running sqlCheck for : 
+UPDATE rd248.QuestionStudentRelation SET rel = '0' 
+               WHERE QuestionStudentRelation.testId = '5'
++ modA, update of rel is succesful for tId: 5 qId: 1
+
++  called the function setMod(), output: 
+{"type":"modA","error":"modA grades is empty. modA feedbacks is empty. ","attempt":{"test":{"id":"5","desc":"Sample Quiz","rel":"1","sub":"1","ques":[{"id":"1","desc":"Write a function called operation that takes three parameters: a string 'op', an int 'a', and an int 'b'. Op can be '+', '-', '*', '\/', '%' and the function should return that operation called with the two parameters a and b. If an unknown op is given, the program should return the string \"error\".","topic":"Operators","cons":[],"diff":"2","tests":["operation('+',3,3)=6","operation('-',3,3)=0","operation('\/',3,3)=1","operation('*',3,3)=9","operation('%',3,3)=0","operation('?',3,3)=error","operation('hi',3,3)=error"]},{"id":"2","desc":"Write a function called strMult() that takes two parameters: a string s, and an integer n. The function should print the string s concatenated with itself n times.","topic":"Printing string","cons":["for","print"],"diff":"3","tests":["strMult(\"hello\",1)=hello","strMult(\"up\", 4)=upupupup","strMult(\"hey\", 3)=heyheyhey","strMult(\"aba\", 2)=abaaba"]},{"id":"4","desc":"Write a function called factorial() which takes one integer parameter n, and returns n!. ","topic":"Math Factorial","cons":["while"],"diff":"4","tests":["factorial(2)=2","factorial(5)=120","factorial(3)=6","factorial(1)=1"]}],"pts":["50","25","25"]},"answers":["def operation(op, a, b):\n    if op == '+':\n        return a+b\n    elif op == '-':\n        return a-b\n    elif op == '*':\n        return a*b\n","def stringMult(s, n):\n    print s*n","def factorial(n)\n    acc = 1\n    for i in range(1,n+1):\n        acc *= i\n    return acc"],"grades":["29","21","4"],"feedback":[["g5p colon [:] in user answer","g5p expecting function: operation, function found!","g6p python called operation('+',3,3), expected: 6, got user answer [6]","b6p python called operation('\/',3,3),  expected answer: 1, got user answer [None]","g6p python called operation('*',3,3), expected: 9, got user answer [9]","b6p python called operation('%',3,3),  expected answer: , got user answer [None]","b5p python called operation('?',3,3),  expected answer: error, got user answer [None]","b4p python called operation('hi',3,3),  expected answer: error, got user answer [None]","n0p user program succesfully executed. "],["b2p constraint [for]  was not found.","g2p constraint [print] was found.","g2p colon [:] in user answer","b2p expecting function: strMult, it was not found!","g5p python called strMult(\"hello\",1), expected: hello, got user answer [hello]","g5p python called strMult(\"up\", 4), expected: upupupup, got user answer [upupupup]","g5p python called strMult(\"hey\", 3), expected: heyheyhey, got user answer [heyheyhey]","g5p python called strMult(\"aba\", 2), expected: abaaba, got user answer [abaaba]","n0p user program succesfully executed. "],["b3p constraint [while]  was not found.","g2p colon [:] in user answer","g2p expecting function: factorial, function found!","b18p user program failed to execute. "]],"remarks":["for the modulus operator, the python program output is an empty string. i will investigate this in a few. ","Uh, oh",""],"rel":"0"}}

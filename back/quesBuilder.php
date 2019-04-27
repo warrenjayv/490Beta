@@ -12,9 +12,9 @@ function quesObject($conn, $qId) {
 
 	$write = "[ + ] page accessed quesB " . date("Y-m-d h:i:sa") . "\n";
 	autolog($write, $tgt); 
-	if (filesize($tgt) >= 100000) {
+	if (filesize($tgt) >= 52428800) {
 		autoclear($tgt); 
-		$write = "+ the log reached 10 mb; it has been cleared \n"; autolog($write, $tgt); 
+		$write = "+ the log reached 50 mb; it has been cleared \n"; autolog($write, $tgt); 
 	}
 
 	$write = "executing quesObject() with qId = " . $qId . "\n"; 
